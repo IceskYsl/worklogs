@@ -1,0 +1,14 @@
+<h2><%= l(:label_worklog_new) %></h2>
+
+<%= labelled_form_for @worklog, :url => worklogs_path(:id=>@worklog.id) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= submit_tag l(:button_create) %>
+<% end %>
+
+
+<% content_for :sidebar do %>
+
+ <h3>约定和说明</h3>
+ <p>缘起： <br/>看到大家每天都通过邮件发送工作日报，查阅的时候也有些麻烦，感觉整个方式不够Geek.<br/>于是俺就写了这么一个小插件方便大家写工作日志。</p>
+ <p>约定： <br/>1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ <br/>2.其他诸如自动发邮件和黄牌功能等我有空了写~</p>
+<% end %>

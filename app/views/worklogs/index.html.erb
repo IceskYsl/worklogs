@@ -1,0 +1,47 @@
+<div class="contextual">
+<%= link_to(l(:label_worklog_new),new_worklog_path(),:class => 'icon icon-add' )%>
+</div>
+ 
+	
+<h2>工作日志</h2>
+<%@worklogs.each do |w|%>
+<h2><%= avatar(w.author, :size => "24") %> <%=h w.day %></h2>
+<div class="contextual">
+<%=link_to "", {:action => 'edit', :id => w.id}, :class => 'icon icon-edit', :accesskey => accesskey(:edit) if can_edit?(w)%>
+</div>
+
+<p class="author"><%= authoring w.created_at, w.author %></p>
+<div class="wiki">
+	<table width="90%">
+		<tr>
+			<td width="60%">今日Do</td>
+			<td width="40%">明日Todo</td>
+		</tr>
+		<tr>
+			<td><%= textilizable(w.do) %></td>
+			<td><%= textilizable(w.todo) %></td>
+		</tr>
+	</table>
+</div>
+<%end%>
+
+
+<% content_for :sidebar do %>
+ <h3>按时间</h3>
+	<%=link_to "N/A",{:controller=>"worklogs",:action=>"index",:user_id=>params[:user_id]},{} %><br />
+	<% @start.step(@last,-Time.days_in_month(@start.mon)) do |archive| 
+	day = archive.strftime("%Y-%m-%d") -%>	
+	<%=link_to day,{:controller=>"worklogs",:action=>"index",:day=>day,:user_id=>params[:user_id]},{} %><br />
+	<% end %>
+
+ <h3>按用户</h3>
+	<%=link_to "N/A",{:controller=>"worklogs",:action=>"index",:day=>params[:day]},{} %><br />
+	<%@users.each do |user|%>
+		<%=link_to user.login,{:controller=>"worklogs",:action=>"index",:user_id=>user.id,:day=>params[:day]}%> <br />
+	<%end%>
+　<hr />
+ <h3>约定和说明</h3>
+ <p>缘起： <br/>看到大家每天都通过邮件发送工作日报，查阅的时候也有些麻烦，感觉整个方式不够Geek.<br/>于是俺就写了这么一个小插件方便大家写工作日志。</p>
+ <p>约定： <br/>1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ <br/>2.其他诸如自动发邮件和黄牌功能等我有空了写~</p>
+<% end %>
+ 

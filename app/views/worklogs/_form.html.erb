@@ -1,0 +1,10 @@
+<%= error_messages_for @worklog %>
+
+<div class="box tabular">
+<p><%= l(:field_day) %>: <%=@day%></p>
+<p><%= f.text_area :do, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
+
+<p><%= f.text_area :todo, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
+
+
+</div>
