@@ -28,6 +28,6 @@ After the plugin is installed you will need to restart Redmine for the plugin to
 
 To remove the plugin, from the root of your installation directory do the following:
 ```
-rm -rf plugins/redmine_dropbox_attachments
+rm -rf plugins/worklogs
 bundle install
 ```
