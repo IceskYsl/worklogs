@@ -1,4 +1,4 @@
-= worklogs
+# worklogs
 
 This is a worklogs plugin for Redmine.
 
@@ -7,10 +7,11 @@ This is a worklogs plugin for Redmine.
 
 To install the plugin, execute the following commands from the root of your Redmine directory:
 
-	cd plugins
-	git clone git@github.com:IceskYsl/worklogs.git
-	bundle install
-
+```
+cd plugins
+git clone git@github.com:IceskYsl/worklogs.git
+bundle install
+```
 
 and then execute the following commands from the root of your Redmine directory:
 
@@ -26,6 +27,7 @@ After the plugin is installed you will need to restart Redmine for the plugin to
 ### Uninstallation
 
 To remove the plugin, from the root of your installation directory do the following:
-
-    rm -rf plugins/redmine_dropbox_attachments
-    bundle install
+```
+rm -rf plugins/redmine_dropbox_attachments
+bundle install
+```
