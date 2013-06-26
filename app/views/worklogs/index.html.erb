@@ -5,14 +5,13 @@
 	
 <h2>工作日志</h2>
 <%@worklogs.each do |w|%>
-<h2><%= avatar(w.author, :size => "24") %> <%=h w.day %></h2>
+<h2><%= avatar(w.author, :size => "24") %> <%=h w.day %> (星期<%=DateTime.parse(w.day).strftime('%u').to_s%>)</h2>
 <div class="contextual">
 <%=link_to "", {:action => 'edit', :id => w.id}, :class => 'icon icon-edit', :accesskey => accesskey(:edit) if can_edit?(w)%>
 </div>
-
 <p class="author"><%= authoring w.created_at, w.author %></p>
 <div class="wiki">
-	<table width="90%">
+	<table width="100%">
 		<tr>
 			<td width="60%">今日Do</td>
 			<td width="40%">明日Todo</td>
@@ -42,6 +41,6 @@
 　<hr />
  <h3>约定和说明</h3>
  <p>缘起： <br/>看到大家每天都通过邮件发送工作日报，查阅的时候也有些麻烦，感觉整个方式不够Geek.<br/>于是俺就写了这么一个小插件方便大家写工作日志。</p>
- <p>约定： <br/>1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ <br/>2.其他诸如自动发邮件和黄牌功能等我有空了写~</p>
+ <p>约定： <br/>1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ <br/>2.只有当天的日志可以重复编辑~<br/>3.其他诸如自动发邮件和黄牌功能等我有空了写~</p>
 <% end %>
  
