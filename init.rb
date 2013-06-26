@@ -3,7 +3,7 @@ Redmine::Plugin.register :worklogs do
   author 'Iceskysl'
   description 'This is a worklogs plugin for Redmine'
   version '0.0.1'
-  url 'http://my.eoemobile.com/worklogs'
+  url 'https://github.com/IceskYsl/worklogs'
   author_url 'http://my.eoe.cn/iceskysl'
   
   menu :top_menu, :worklogs, { :controller => 'worklogs', :action => 'index' }, :caption => :label_worklog
