@@ -2,7 +2,8 @@
 en:
   # my_label: "My label"
   label_worklog: "Worklog"
-  label_worklog_new: "Add My worklog"
+  label_worklog_new: "Add My Worklog"
+  label_worklog_edit: "Edit My Worklog"
   field_day: "Day"
   field_do: "done"
   field_todo: "todo"

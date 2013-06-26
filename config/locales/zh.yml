@@ -2,6 +2,7 @@
 zh:
   label_worklog: "工作日志"
   label_worklog_new: "添加工作日志"
+  label_worklog_edit: "编辑工作日志"
   field_day: "日期"
   field_do: "今日完成"
   field_todo: "明日待办"
