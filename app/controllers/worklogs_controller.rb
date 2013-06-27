@@ -22,13 +22,13 @@ class WorklogsController < ApplicationController
     
     # @worklogs = Worklog.find(:all,:order => "id desc")
     
-    @start_topic=Worklog.find(:first,:order =>"created_at").created_at.to_date if Worklog.count > 0
-    @start_topic ||= Date.today
-    @last = Date.new(@start_topic.year,@start_topic.mon,1)
+    @last=Worklog.find(:first,:order =>"created_at asc").created_at.to_date if Worklog.count > 0
+    @last ||= Date.today
+    # @last = Date.new(@start_topic.year,@start_topic.mon,1)
     @start=Date.today
     
-    scope = User.logged.status(@status)
-    @users =  scope.order("last_login_on").all
+    scope = User.logged.status(1)
+    @users =  scope.order("last_login_on desc").all
   end
 
   def new
