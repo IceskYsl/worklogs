@@ -31,3 +31,6 @@ To remove the plugin, from the root of your installation directory do the follow
 rm -rf plugins/worklogs
 bundle install
 ```
+
+## Demo
+![pic](https://f.cloud.github.com/assets/5537/719898/31cfb77e-dfa0-11e2-8618-6dd6c6bc31fd.jpg)
