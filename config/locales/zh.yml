@@ -1,8 +1,11 @@
 #zh strings go here for Rails i18n
 zh:
   label_worklog: "工作日志"
+  label_worklog_my: "我的日志"
   label_worklog_new: "添加工作日志"
   label_worklog_edit: "编辑工作日志"
   field_day: "日期"
   field_do: "今日完成"
   field_todo: "明日待办"
+  mail_subject_worklog_day: "工作日志:%{value}"
+  mail_body_worklog_day: '今天日报汇总情况如下：'

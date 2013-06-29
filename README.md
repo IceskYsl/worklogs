@@ -31,3 +31,4 @@ To remove the plugin, from the root of your installation directory do the follow
 rm -rf plugins/worklogs
 bundle install
 ```
+

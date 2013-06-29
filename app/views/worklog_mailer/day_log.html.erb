@@ -1,0 +1,33 @@
+<p>hey all<br />
+今天是<%=@day%>(周<%=DateTime.parse(@day).strftime('%u').to_s%>), <%= l(:mail_body_worklog_day) %><br />
+俺们这个团队目前共<%=@all_users.size%>人，按时提交日报的<%=@sended_users.size%>人，未按按时提交日报的<%=@unsended_users.size%>人:<br />
+<%@unsended_users.each do |user|%>
+  *<%=user.name()%><br/>
+<%end%>
+你也可以通过如下链接查看: <%= link_to h(@url), @url %><br />
+<hr />
+
+
+<%@worklogs.each do |w|%>
+<b><%=w.author.name()%></b><br />
+============<br />
+<p>
+今日Done:<br />
+<%= textilizable(w.do) %>	
+
+------------<br /><br />
+
+明日Todo:<br />
+<%= textilizable(w.todo) %>	
+</p>
+
+---------------------------------------------<br /><br />
+<%end%>
+
+
+<br /><br />
+<b>友情提醒：</b><br />
+============<br />
+1.日报是eoe的基本制度，请每位同学在每天22:00前提交，养成写日报的好习惯将受益终身。<br />
+2.本邮件由worklog@eoe系统每天22:00定时汇总发送，有问题请联系iceskysl@gmail.com<br />
+</p>
