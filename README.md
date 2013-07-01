@@ -21,8 +21,18 @@ $ rake redmine:plugins:migrate
 
 More information on installing Redmine plugins can be found at [redmine.org](http://www.redmine.org/wiki/redmine/Plugins.).
 
-
 After the plugin is installed you will need to restart Redmine for the plugin to be available.
+
+## Task
+
+Add the task into crontable
+```
+$ cat /etc/cron.daily/week.sh
+#!/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/opt/ruby/bin
+cd /opt/redmine/
+RAILS_ENV=production bundle exec rake worklogs:day
+```
 
 ### Uninstallation
 
@@ -34,3 +44,4 @@ bundle install
 
 ## Demo
 ![pic](https://f.cloud.github.com/assets/5537/719898/31cfb77e-dfa0-11e2-8618-6dd6c6bc31fd.jpg)
+
