@@ -1,9 +1,16 @@
 <p>hey all<br />
 今天是<%=@day%>(周<%=DateTime.parse(@day).strftime('%u').to_s%>), <%= l(:mail_body_worklog_day) %><br />
-俺们这个团队目前共<%=@all_users.size%>人，按时提交日报的<%=@sended_users.size%>人，未按按时提交日报的<%=@unsended_users.size%>人:<br />
-<%@unsended_users.each do |user|%>
-  *<%=user.name()%><br/>
+俺们这个团队目前共<%=@all_users.size%>人，需要提交日报的<%=@need_user_ids.size%>人，按时提交日报的<%=@sended_user_ids.size%>人.<br />
+
+<%if @unsended_users.size == 0%>
+	<br/>太棒啦，大家都按时提交啦！！！！<br/><br/>
+<%else%>
+未按按时提交日报的<%=@unsended_users.size%>人:<br/>
+	<%@unsended_users.each do |user|%>
+	  *<%=user.name()%><br/>
+	<%end%>
 <%end%>
+
 你也可以通过如下链接查看: <%= link_to h(@url), @url %><br />
 <hr />
 

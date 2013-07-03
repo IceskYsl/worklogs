@@ -10,7 +10,7 @@ class WorklogsController < ApplicationController
     @last ||= Date.today
     # @last = Date.new(@start_topic.year,@start_topic.mon,1)
     @start=Date.today
-    scope = User.logged.status(1)
+    scope = User.logged.status(1).where("id > 1")
     @users =  scope.order("last_login_on desc").all
   end
   

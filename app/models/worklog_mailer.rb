@@ -10,11 +10,14 @@ class WorklogMailer < Mailer
     recipients = @all_users.collect(&:mail)
     @day = day || Date.today.to_s
     @worklogs = Worklog.where("status = 0").where(:day => @day)
-    @sended_users = @worklogs.collect(&:user_id).uniq
-    @unsended_users = User.find(@all_users.collect(&:id) - @sended_users )
+    
+    @sended_user_ids = @worklogs.collect(&:user_id).uniq
+    @no_need_users_ids = [1,61,55,46]
+    @need_user_ids = @all_users.collect(&:id) - @no_need_users_ids
+    @unsended_users = User.find(@need_user_ids - @sended_user_ids)
     
     #recipients
-    mail :to => recipients ,
+    mail :to =>  recipients ,
          :cc => "pml@eoemobile.com",
          :subject => l(:mail_subject_worklog_day, day)
   end
