@@ -24,6 +24,10 @@ class WorklogsController < ApplicationController
       worklogs_scope = worklogs_scope.where(:day => @day)
     end
     
+    unless @typee.blank?
+      worklogs_scope = worklogs_scope.where(:typee => @typee)
+    end
+    
     @worklogs =  worklogs_scope.order("day desc,id desc").all
   end
   
@@ -31,6 +35,7 @@ class WorklogsController < ApplicationController
   def index
     @user_id = params[:user_id]
     @day = params[:day]
+    @typee = params[:typee]
     load_worklogs
   end
   
@@ -45,6 +50,8 @@ class WorklogsController < ApplicationController
     @day = Date.today
     @worklog = Worklog.new()
   end
+ 
+  
   
   def edit
     @day = Date.today

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module WorklogsHelper
   
   def can_edit?(worklog)
@@ -6,4 +7,15 @@ module WorklogsHelper
     end
       return false
   end
+  
+  def worklogs_title(typee=nil)
+    if typee == "0"
+      return "日报日志"
+    elsif typee == "1"
+      return "周报日志"
+    else
+      return "工作日志"
+    end
+  end
+  
 end
