@@ -19,7 +19,7 @@ class WorklogMailer < Mailer
     
     #recipients
     mail :to =>  recipients ,
-         :cc => "pml@eoemobile.com",
+         :cc =>  Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],，
          :subject => l(:mail_subject_worklog_day, day)
   end
   

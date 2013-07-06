@@ -13,6 +13,13 @@
 </p>
 
 <p>
+  <label>抄送邮件地址</label>
+  <%= text_field_tag 'settings[WORKLOGS_MAIL_CC]', settings['WORKLOGS_MAIL_CC'] %>
+  <br />
+  <em>输入发送汇总邮件时需要抄送的邮件地址.</em>
+</p>
+
+<p>
   <label>分页条数</label>
   <%= text_field_tag 'settings[WORKLOGS_PAGINATION_LIMIT]', settings['WORKLOGS_PAGINATION_LIMIT'] || 20 %>
   <br />
