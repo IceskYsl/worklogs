@@ -43,7 +43,7 @@ bundle install
 
 ## Demo
 Configure
-![Configure](https://f.cloud.github.com/assets/5537/756005/899aab90-e5d5-11e2-8b0c-a92bef0644c4.png)
+![Configure](https://f.cloud.github.com/assets/5537/756143/753e6d74-e5eb-11e2-9cd6-64544f6fd876.png)
 
 ![Configure](https://f.cloud.github.com/assets/5537/756006/8d375c3a-e5d5-11e2-9377-ad887a58a6db.png)
 
