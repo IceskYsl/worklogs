@@ -43,5 +43,11 @@ bundle install
 ```
 
 ## Demo
+Configure
+![Configure](https://f.cloud.github.com/assets/5537/756005/899aab90-e5d5-11e2-8b0c-a92bef0644c4.png)
+
+![Configure](https://f.cloud.github.com/assets/5537/756006/8d375c3a-e5d5-11e2-9377-ad887a58a6db.png)
+
+demo
 ![pic](https://f.cloud.github.com/assets/5537/719898/31cfb77e-dfa0-11e2-8618-6dd6c6bc31fd.jpg)
 
