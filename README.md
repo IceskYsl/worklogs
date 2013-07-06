@@ -9,14 +9,13 @@ To install the plugin, execute the following commands from the root of your Redm
 
 ```
 cd plugins
-git clone git@github.com:IceskYsl/worklogs.git
-bundle install
+git clone https://github.com/IceskYsl/worklogs.git
 ```
 
 and then execute the following commands from the root of your Redmine directory:
 
 ```
-$ rake redmine:plugins:migrate
+$ RAILS_ENV=production rake redmine:plugins:migrate
 ```	
 
 More information on installing Redmine plugins can be found at [redmine.org](http://www.redmine.org/wiki/redmine/Plugins.).
