@@ -10,8 +10,8 @@ class WorklogsController < ApplicationController
     @last ||= Date.today
     # @last = Date.new(@start_topic.year,@start_topic.mon,1)
     @start=Date.today
-    scope = User.logged.status(1).where("id > 1")
-    @users =  scope.order("last_login_on desc").all
+    scope = User.logged.status(1)
+    @users =  scope.order("last_login_on desc").all - Worklog.no_need_users
   end
   
   def load_worklogs
@@ -28,7 +28,15 @@ class WorklogsController < ApplicationController
       worklogs_scope = worklogs_scope.where(:typee => @typee)
     end
     
-    @worklogs =  worklogs_scope.order("day desc,id desc").all
+    worklogs_scope = worklogs_scope.order("day desc,id desc")
+    # @worklogs =  worklogs_scope.order("day desc,id desc").paginate(:page => params[:page], :per_page => 100)
+    @limit =  Setting.plugin_worklogs['WORKLOGS_PAGINATION_LIMIT'].to_i || 20
+    @worklogs_count = worklogs_scope.count
+    @worklogs_pages = Paginator.new @worklogs_count, @limit, params['page']
+    @offset ||= @worklogs_pages.offset
+    @worklogs = worklogs_scope.all(    :order => "#{Worklog.table_name}.created_at DESC",
+                                       :offset => @offset,
+                                       :limit => @limit)
   end
   
 

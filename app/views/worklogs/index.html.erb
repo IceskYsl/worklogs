@@ -6,7 +6,6 @@
  
 	
 <h2><%=worklogs_title(params[:typee])%></h2>
-
 <%@worklogs.each do |w|%>
 <h2><%= avatar(w.author, :size => "24") %> <%=w.typee == 0 ? "日报" : "周报"%>: <%=h w.day %>(周<%=DateTime.parse(w.day).strftime('%u').to_s%>)</h2>
 <div class="contextual">
@@ -24,11 +23,19 @@
 			<td><%= textilizable(w.todo) %></td>
 		</tr>
 	</table>
+	<p class="pagination"><%= pagination_links_full @worklogs_pages %></p>
+	
 </div>
 <%end%>
 
 
 <% content_for :sidebar do %>
+<h3>按用户</h3>
+	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:day=>params[:day]},{} %><br />
+	<%@users.each do |user|%>
+		<%=link_to user.name(),{:controller=>"worklogs",:action=>"index",:user_id=>user.id,:day=>params[:day]}%> <br />
+	<%end%>
+	
  <h3>按时间</h3>
 	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:user_id=>params[:user_id]},{} %><br />
 	<% @start.step(@last,-1) do |archive| 
@@ -36,16 +43,11 @@
 	<%=link_to day,{:controller=>"worklogs",:action=>"index",:day=>day,:user_id=>params[:user_id]},{} %><br />
 	<% end %>
 
- <h3>按用户</h3>
-	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:day=>params[:day]},{} %><br />
-	<%@users.each do |user|%>
-		<%=link_to user.name(),{:controller=>"worklogs",:action=>"index",:user_id=>user.id,:day=>params[:day]}%> <br />
-	<%end%>
+
+	
 　<hr />
  <h3>约定和说明</h3>
- <p>缘起： <br/>看到大家每天都通过邮件发送工作日报，查阅的时候也有些麻烦，感觉整个方式不够Geek.<br/>于是俺就写了这么一个小插件方便大家写工作日志。</p>
- <p>约定： <br/>1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ <br/>2.只有当天的日志可以重复编辑~<br/>3.周1到周5晚10点统一统计和发送日报汇总邮件;</p>
- <p>TODO： <br/>1.兼容周报模式；<br/>2.限制每天只能提交一次(Bug)<br/>3.有其他功能需求可以来 <%=link_to "这里","/boards/1/topics/724",{} %> 讨论和反馈.</p>
+ <%=textilizable Setting.plugin_worklogs['WORKLOGS_ABOUT'] || "约定和说明,可定制"%>
 <% end %>
  
 
