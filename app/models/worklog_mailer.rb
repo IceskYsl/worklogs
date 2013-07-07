@@ -10,7 +10,7 @@ class WorklogMailer < Mailer
     recipients = @all_users.collect(&:mail)
     
     @day = day || Date.today.to_s
-    @worklogs = Worklog.where("status = 0").where("typee = 0")where(:day => @day)
+    @worklogs = Worklog.where("status = 0").where("typee = 0").where(:day => @day)
     
     @sended_user_ids = @worklogs.collect(&:user_id).uniq
     # @no_need_users_ids = [1,61,55,46]
@@ -20,18 +20,19 @@ class WorklogMailer < Mailer
     
     #recipients
     mail :to =>  recipients ,
-         :cc =>  Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],，
+         :cc =>  Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
          :subject => l(:mail_subject_worklog_day, day)
   end
   
   #week_report
-  def self.week_report(week)
+  def week_report(week)
     @url = url_for(:controller => 'worklogs', :action => 'index', :typee => 1)
     @all_users = User.status("1").where("id > 1") #.all - User.find(1)
     recipients = @all_users.collect(&:mail)
     
-    @week = week
     @day = Date.today.to_s
+    @week = week
+    
     @worklogs = Worklog.where("status = 0").where("typee = 1").where(:week => @week)
     
     @sended_user_ids = @worklogs.collect(&:user_id).uniq
@@ -39,10 +40,9 @@ class WorklogMailer < Mailer
     @need_user_ids = @all_users.collect(&:id) - @no_need_users_ids
     @unsended_users = User.find(@need_user_ids - @sended_user_ids)
     
-    mail :to =>  recipients ,
-         :cc =>  Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],，
-         :subject => l(:mail_subject_worklog_day, week)
-    
+    mail :to =>  "iceskysl@gmail.com" ,  #recipients
+         :cc =>  "iceskysl@eoemobile.com", #Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],，
+         :subject => l(:mail_subject_worklog_week, week)
   end
   
 end

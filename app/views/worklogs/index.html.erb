@@ -23,11 +23,11 @@
 			<td><%= textilizable(w.todo) %></td>
 		</tr>
 	</table>
-	<p class="pagination"><%= pagination_links_full @worklogs_pages %></p>
+	
 	
 </div>
 <%end%>
-
+<p class="pagination"><%= pagination_links_full @worklogs_pages %></p>
 
 <% content_for :sidebar do %>
 <h3>按用户</h3>
@@ -47,7 +47,7 @@
 	
 　<hr />
  <h3>约定和说明</h3>
- <%=textilizable Setting.plugin_worklogs['WORKLOGS_ABOUT'] || "约定和说明,可定制"%>
+ <%=textilizable (Setting.plugin_worklogs['WORKLOGS_ABOUT'] || "约定和说明,可定制").force_encoding("utf-8")%>
 <% end %>
  
 

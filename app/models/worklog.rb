@@ -13,7 +13,13 @@ class Worklog < ActiveRecord::Base
   
   def self.no_need_users_ids
     #1,2
-    Setting.plugin_worklogs['WORKLOGS_UN_IDS'].split(",")
+    no_need_users_ids = []
+    Setting.plugin_worklogs['WORKLOGS_UN_IDS'].split(",").each do |i|
+      no_need_users_ids << i.to_i
+    end
+    #no_need_users_ids:["1", "61", "55", "46"]
+    logger.info("no_need_users_ids:#{no_need_users_ids}")
+    no_need_users_ids
   end
   
   def self.no_need_users

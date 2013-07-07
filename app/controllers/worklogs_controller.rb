@@ -1,3 +1,4 @@
+#encoding: utf-8
 class WorklogsController < ApplicationController
   model_object Worklog
   unloadable
@@ -29,8 +30,9 @@ class WorklogsController < ApplicationController
     end
     
     worklogs_scope = worklogs_scope.order("day desc,id desc")
-    # @worklogs =  worklogs_scope.order("day desc,id desc").paginate(:page => params[:page], :per_page => 100)
     @limit =  Setting.plugin_worklogs['WORKLOGS_PAGINATION_LIMIT'].to_i || 20
+    # @worklogs = worklogs_scope.all#.limit(@limit)
+    
     @worklogs_count = worklogs_scope.count
     @worklogs_pages = Paginator.new @worklogs_count, @limit, params['page']
     @offset ||= @worklogs_pages.offset
@@ -51,6 +53,7 @@ class WorklogsController < ApplicationController
     @user_id = session[:user_id]
     @day = params[:day]
     load_worklogs
+    
     render :action => :index
   end
 
@@ -79,6 +82,7 @@ class WorklogsController < ApplicationController
   def create
     @worklog = Worklog.new(params[:worklog])
     @worklog.day = Date.today
+    @worklog.week = Date.today.strftime("%W").to_i
     @worklog.author = User.current
     @worklog.save
     redirect_to worklogs_path()

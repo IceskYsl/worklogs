@@ -1,5 +1,5 @@
 <p>hey all<br />
-今天是<%=@day%>(周<%=DateTime.parse(@day).strftime('%u').to_s%>), 本年度第<%=@week%>周，<%= l(:mail_body_worklog_day) %><br />
+今天是<%=@day%>(周<%=DateTime.parse(@day).strftime('%u').to_s%>), 本年度第<%=@week%>周，<%= l(:mail_body_worklog_week) %><br />
 俺们这个团队目前共<%=@all_users.size%>人，需要提交周报的<%=@need_user_ids.size%>人，按时提交周报的<%=@sended_user_ids.size%>人.<br />
 
 <%if @unsended_users.size == 0%>
