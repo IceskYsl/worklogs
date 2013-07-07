@@ -19,4 +19,14 @@ class Worklog < ActiveRecord::Base
   def self.no_need_users
     User.find(Worklog.no_need_users_ids)
   end
+  
+  #use to migration week data
+  def self.mig_week
+    Worklog.all.each do |w|
+      week = Date.parse(w.day).strftime("%W")
+      w.week = week
+      w.save
+    end
+    
+  end
 end

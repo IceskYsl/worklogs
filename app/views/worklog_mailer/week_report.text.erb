@@ -1,13 +1,13 @@
 hey all
-今天是<%=@day%>(周<%=DateTime.parse(@day).strftime('%u').to_s%>), <%= l(:mail_body_worklog_day) %>
-俺们这个团队目前共<%=@all_users.size%>人，需要提交日报的<%=@need_user_ids.size%>人，按时提交日报的<%=@sended_user_ids.size%>人.
+今天是<%=@day%>(周<%=DateTime.parse(@day).strftime('%u').to_s%>), 本年度第<%=@week%>周, <%= l(:mail_body_worklog_day) %>
+俺们这个团队目前共<%=@all_users.size%>人，需要提交周报的<%=@need_user_ids.size%>人，按时提交周报的<%=@sended_user_ids.size%>人.
 
 <%if @unsended_users.size == 0%>
 
 	太棒啦，大家都按时提交啦！！！！
 	
 <%else%>
-未按按时提交日报的<%=@unsended_users.size%>人: 
+未按按时提交周报的<%=@unsended_users.size%>人: 
 	<%@unsended_users.each do |user|%>
 	  *<%=user.name()%> 
 	<%end%>
@@ -22,12 +22,12 @@ hey all
 <%=w.author.name()%>
 ============
 
-今日Done:
+本周Done:
 <%= textilizable(w.do) %>	
 
 ------------
 
-明日Todo:
+本周Todo:
 <%= textilizable(w.todo) %>	
 
 
