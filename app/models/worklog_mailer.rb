@@ -40,8 +40,8 @@ class WorklogMailer < Mailer
     @need_user_ids = @all_users.collect(&:id) - @no_need_users_ids
     @unsended_users = User.find(@need_user_ids - @sended_user_ids)
     
-    mail :to =>  "iceskysl@gmail.com" ,  #recipients
-         :cc =>  "iceskysl@eoemobile.com", #Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],，
+    mail :to => recipients,
+         :cc => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],，
          :subject => l(:mail_subject_worklog_week, week)
   end
   
