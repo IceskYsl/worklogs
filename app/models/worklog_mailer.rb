@@ -4,7 +4,7 @@ class WorklogMailer < Mailer
   end
   
   # Builds a Mail::Message object used to email recipients of the added issue.  
-  def self.day_log(day)
+  def day_log(day)
     @url = url_for(:controller => 'worklogs', :action => 'index', :day => day)
     @all_users = User.status("1").where("id > 1") #.all - User.find(1)
     recipients = @all_users.collect(&:mail)
