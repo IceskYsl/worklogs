@@ -7,14 +7,14 @@
 
 <p>
   <label>不需要发送日报的用户</label>
-  <%= text_field_tag 'settings[WORKLOGS_UN_IDS]', settings['WORKLOGS_UN_IDS'] %>
+  <%= text_field_tag 'settings[WORKLOGS_UN_IDS]', settings['WORKLOGS_UN_IDS'] || "1" %>
   <br />
   <em>输入不需要发日报的用户Id,多个id用英文逗号分割.</em>
 </p>
 
 <p>
   <label>抄送邮件地址</label>
-  <%= text_field_tag 'settings[WORKLOGS_MAIL_CC]', settings['WORKLOGS_MAIL_CC'] %>
+  <%= text_field_tag 'settings[WORKLOGS_MAIL_CC]', settings['WORKLOGS_MAIL_CC'] || "" %>
   <br />
   <em>输入发送汇总邮件时需要抄送的邮件地址.</em>
 </p>
@@ -30,7 +30,7 @@
 
 <p>
   <label>约定和说明</label>
-  <%= text_area_tag 'settings[WORKLOGS_ABOUT]', (settings["WORKLOGS_ABOUT"]).force_encoding("utf-8"),:cols => 60, :rows => 25 %>
+  <%= text_area_tag 'settings[WORKLOGS_ABOUT]', (settings["WORKLOGS_ABOUT"] || "").force_encoding("utf-8"),:cols => 60, :rows => 25 %>
   <br />
   <em>定制你的约定和说明.</em>
 </p>
