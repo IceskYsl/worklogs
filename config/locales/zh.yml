@@ -1,6 +1,7 @@
 #zh strings go here for Rails i18n
 zh:
   label_worklog: "工作日志"
+  label_all_worklog: "全部日志"
   label_worklog_my: "我的日志"
   label_worklog_new: "添加工作日志"
   label_worklog_edit: "编辑工作日志"
@@ -14,3 +15,7 @@ zh:
   mail_subject_worklog_week: "工作日志: 第%{value}周"
   mail_body_worklog_day: '今天日报汇总情况如下：'
   mail_body_worklog_week: '本周周报汇总情况如下：'
+  project_module_worklogs: "工作日志"
+  permission_all_worklogs: '全部日志'
+  permission_my_worklogs: '我的日志'
+  permission_new_worklogs: '添加日志'

@@ -1,7 +1,10 @@
 <div class="contextual">
-<%= link_to(l(:label_worklog_day),worklogs_path(:typee=>0),:class => 'icon icon-time' )%>
-<%= link_to(l(:label_worklog_week),worklogs_path(:typee=>1),:class => 'icon icon-stats' )%>
-<%= link_to(l(:label_worklog_new),new_worklog_path(),:class => 'icon icon-add' )%>
+
+<%= link_to(l(:label_worklog_new),new_worklog_path(),:class => 'icon icon-add' ) + ' |'%>
+<%= link_to(l(:label_worklog_my), worklogs_my_path) + ' |' if User.current.allowed_to?(:my_worklogs, nil, :global => true) %>
+<%= link_to(l(:label_all_worklog), worklogs_path) + ' (' if User.current.allowed_to?(:all_worklogs, nil, :global => true) %>
+<%= link_to(l(:label_worklog_day),worklogs_path(:typee=>0)) + ' |'%>  
+<%= link_to(l(:label_worklog_week),worklogs_path(:typee=>1)) + " )"%>
 </div>
  
 	

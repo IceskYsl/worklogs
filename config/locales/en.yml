@@ -1,6 +1,7 @@
 # English strings go here for Rails i18n
 en:
   label_worklog: "Worklog"
+  label_all_worklog: "All worklogs"
   label_worklog_my: "Mylogs"
   label_worklog_new: "Add My Worklog"
   label_worklog_edit: "Edit My Worklog"
