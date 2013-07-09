@@ -2,6 +2,10 @@
 
 This is a worklogs plugin for Redmine.
 
+## Requirements
+
+Ruby interpreter: 1.9.2, 1.9.3, 2.0.0
+Redmine: 2.3.x
 
 ## Installation
 

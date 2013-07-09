@@ -17,10 +17,7 @@
 
 
 <% content_for :sidebar do %>
-
- <h3>约定和说明</h3>
- <%=textilizable Setting.plugin_worklogs['WORKLOGS_ABOUT'] || "约定和说明,可定制"%>
-
+	<%=render :partial => "sidebar" %>
 <% end %>
 
 <% html_title "#{l(:label_worklog_edit)} - #{l(:label_worklog)}" %>

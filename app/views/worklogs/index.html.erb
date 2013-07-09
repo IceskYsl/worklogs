@@ -1,16 +1,9 @@
-<div class="contextual">
-
-<%= link_to(l(:label_worklog_new),new_worklog_path(),:class => 'icon icon-add' ) + ' |'%>
-<%= link_to(l(:label_worklog_my), worklogs_my_path) + ' |' if User.current.allowed_to?(:my_worklogs, nil, :global => true) %>
-<%= link_to(l(:label_all_worklog), worklogs_path) + ' (' if User.current.allowed_to?(:all_worklogs, nil, :global => true) %>
-<%= link_to(l(:label_worklog_day),worklogs_path(:typee=>0)) + ' |'%>  
-<%= link_to(l(:label_worklog_week),worklogs_path(:typee=>1)) + " )"%>
-</div>
+<%=render :partial => "nav" %>
  
 	
 <h2><%=worklogs_title(params[:typee])%></h2>
 <%@worklogs.each do |w|%>
-<h2><%= avatar(w.author, :size => "24") %> <%=w.typee == 0 ? "日报" : "周报"%>: <%=h w.day %>(周<%=DateTime.parse(w.day).strftime('%u').to_s%>)</h2>
+<h3><%= avatar(w.author, :size => "18")%> <%=(w.typee == 0) ? "日报" : "周报"%>: <%=h w.day %>(周<%=DateTime.parse(w.day).strftime('%u').to_s%>)</h3>
 <div class="contextual">
 <%=link_to "", {:action => 'edit', :id => w.id}, :class => 'icon icon-edit', :accesskey => accesskey(:edit) if can_edit?(w)%>
 </div>
@@ -33,24 +26,7 @@
 <p class="pagination"><%= pagination_links_full @worklogs_pages %></p>
 
 <% content_for :sidebar do %>
-<h3>按用户</h3>
-	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:day=>params[:day]},{} %><br />
-	<%@users.each do |user|%>
-		<%=link_to user.name(),{:controller=>"worklogs",:action=>"index",:user_id=>user.id,:day=>params[:day]}%> <br />
-	<%end%>
-	
- <h3>按时间</h3>
-	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:user_id=>params[:user_id]},{} %><br />
-	<% @start.step(@last,-1) do |archive| 
-	day = archive.strftime("%Y-%m-%d") -%>	
-	<%=link_to day,{:controller=>"worklogs",:action=>"index",:day=>day,:user_id=>params[:user_id]},{} %><br />
-	<% end %>
-
-
-	
-　<hr />
- <h3>约定和说明</h3>
- <%=textilizable (Setting.plugin_worklogs['WORKLOGS_ABOUT'] || "约定和说明,可定制").force_encoding("utf-8")%>
+	<%=render :partial => "sidebar" %>
 <% end %>
  
 

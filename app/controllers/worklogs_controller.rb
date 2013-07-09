@@ -5,7 +5,7 @@ class WorklogsController < ApplicationController
   # before_filter :authorize, :only => [:index,:my,:new]
   
   before_filter :find_model_object, :except => [:index, :new, :create,:my]
-  before_filter :init_slider,:only => [:index, :my]
+  before_filter :init_slider,:only => [:index, :my, :new, :edit]
   
   
   def init_slider

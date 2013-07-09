@@ -1,0 +1,28 @@
+<h3>按用户</h3>
+<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:day=>params[:day]},{} %><br />
+<%@users.each do |user|%>
+	<%=link_to user.name(),{:controller=>"worklogs",:action=>"index",:user_id=>user.id,:day=>params[:day]}%> <br />
+<%end%>
+
+<h3>按时间</h3>
+<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:user_id=>params[:user_id]},{} %><br />
+<% @start.step(@last,-1) do |archive| 
+day = archive.strftime("%Y-%m-%d") -%>	
+<%=link_to day,{:controller=>"worklogs",:action=>"index",:day=>day,:user_id=>params[:user_id]},{} %><br />
+<% end %>
+
+
+
+　<hr />
+<h3>约定和说明</h3>
+<%=textilizable (Setting.plugin_worklogs['WORKLOGS_ABOUT'] || "约定和说明,可定制").force_encoding("utf-8")%>
+
+
+
+<br />
+<hr />
+<p>
+
+	<%=link_to "Worklogs","https://github.com/IceskYsl/worklogs" %>  is a plugin for <%=link_to "Redmine","http://www.redmine.org/" %>, developed by <%=link_to "Iceskysl@eoe","http://my.eoe.cn/iceskysl"%> 
+	
+</p>
