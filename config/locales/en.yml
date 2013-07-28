@@ -15,3 +15,10 @@ en:
   mail_subject_worklog_week: "%Week worklogs: {value}"
   mail_body_worklog_day: '今天日报汇总情况如下：'
   mail_body_worklog_week: '本周周报汇总情况如下：'
+  project_module_worklogs: "工作日志"
+  permission_all_worklogs: 'Worklogs'
+  permission_my_worklogs: 'my worklogs'
+  permission_new_worklogs: 'add worklogs'
+  text_worklogs_about: "缘起:\n看到大家每天都通过邮件发送工作日报，查阅的时候也有些麻烦，感觉整个方式不够Geek.\n于是俺就写了这么一个小插件方便大家写工作日志.\n\n约定： \n1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ \n2.只有当天的日志可以重复编辑~\n3.其他诸如自动发邮件和黄牌功能等我有空了写~\n\n约定： \n1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ \n2.只有当天的日志可以重复编辑~\n3.周1到周5晚10点统一统计和发送日报汇总邮件;\n\nTODO： \n1.兼容周报模式；\n2.限制每天只能提交一次(Bug)"
+  text_worklogs_mail_footer: "友情提醒：\n==========\n1.日报和周报是eoe的基本制度，请每位同学在每天22:00前提交，养成写工作日志的好习惯将受益终身。\n2.日报由worklog@eoe系统每天23:00定时汇总发送，周报由每周日中午12点定时汇总发出。\n3.本邮件由系统自动发出，不要回复本邮件，有问题请联系iceskysl@gmail.com。"
+ 

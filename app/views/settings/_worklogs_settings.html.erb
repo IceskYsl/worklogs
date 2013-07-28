@@ -30,7 +30,14 @@
 
 <p>
   <label>约定和说明</label>
-  <%= text_area_tag 'settings[WORKLOGS_ABOUT]', (settings["WORKLOGS_ABOUT"] || ""),:cols => 60, :rows => 25 %>
+  <%= text_area_tag 'settings[WORKLOGS_ABOUT]', (settings["WORKLOGS_ABOUT"] || l(:text_worklogs_about)).force_encoding("utf-8"),:cols => 60, :rows => 25 %>
   <br />
   <em>定制你的约定和说明.</em>
+</p>
+
+<p>
+  <label>邮件提醒</label>
+  <%= text_area_tag 'settings[WORKLOGS_MAIL_FOOTER]', (settings["WORKLOGS_MAIL_FOOTER"] || l(:text_worklogs_mail_footer)).force_encoding("utf-8"),:cols => 60, :rows => 15 %>
+  <br />
+  <em>邮件提醒的结尾文字.</em>
 </p>

@@ -25,7 +25,8 @@ class Worklog < ActiveRecord::Base
   end
   
   def self.no_need_users
-    User.find(Worklog.no_need_users_ids)
+    no_need_users_ids = Worklog.no_need_users_ids
+    User.find(no_need_users_ids)
   end
   
   #use to migration week data
