@@ -11,8 +11,8 @@
 <div class="wiki">
 	<table width="100%">
 		<tr>
-			<td width="60%">今日Done</td>
-			<td width="40%">明日Todo</td>
+			<td width="60%"><%=(w.typee == 0) ? "今日Done" : "本周Done"%></td>
+			<td width="40%"><%=(w.typee == 0) ? "明日Todo" : "下周Todo"%></td>
 		</tr>
 		<tr>
 			<td><%= textilizable(w.do) %></td>
