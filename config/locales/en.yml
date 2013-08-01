@@ -11,6 +11,7 @@ en:
   field_typee: "Type"
   field_do: "done"
   field_todo: "todo"
+  field_feel: "feel"
   mail_subject_worklog_day: "%Day worklogs: {value}"
   mail_subject_worklog_week: "%Week worklogs: {value}"
   mail_body_worklog_day: '今天日报汇总情况如下：'

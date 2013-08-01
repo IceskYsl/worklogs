@@ -11,6 +11,7 @@ zh:
   field_typee: "类型"  
   field_do: "今日完成"
   field_todo: "明日待办"
+  field_feel: "心得感受"
   mail_subject_worklog_day: "工作日志:%{value}"
   mail_subject_worklog_week: "工作日志: 第%{value}周"
   mail_body_worklog_day: '今天日报汇总情况如下：'

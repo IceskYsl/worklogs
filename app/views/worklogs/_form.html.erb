@@ -4,6 +4,6 @@
 <p><%= l(:field_day) %>: <%=@day%></p>
 <p><%= f.select(:typee, Worklog.typee_collection, {:class=>'wiki-edit',:required => true})%> </p>
 <p><%= f.text_area :do, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
-<p><%= f.text_area :todo, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
-
+<p><%= f.text_area :todo, :required => true, :cols => 40, :rows => 10, :class => 'wiki-edit' %></p>
+<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 10, :class => 'wiki-edit' %></p>
 </div>
