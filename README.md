@@ -30,6 +30,16 @@ After the plugin is installed you will need to restart Redmine for the plugin to
 
 ## Task
 
+by rake
+```
+#day report
+RAILS_ENV=production bundle exec rake worklogs:day day=2013-08-01
+
+#week report
+RAILS_ENV=production bundle exec rake worklogs:week week=23
+
+```
+
 Add the task into crontable
 ```
 $ cat /etc/cron.daily/week.sh
