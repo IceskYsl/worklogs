@@ -53,6 +53,7 @@ RAILS_ENV=production bundle exec rake worklogs:day
 
 To remove the plugin, from the root of your installation directory do the following:
 ```
+rake redmine:plugins:migrate NAME=worklogs VERSION=0 RAILS_ENV=production
 rm -rf plugins/worklogs
 bundle install
 ```
