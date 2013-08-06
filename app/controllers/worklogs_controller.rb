@@ -61,12 +61,13 @@ class WorklogsController < ApplicationController
 
   def new
     @day = Date.today
-    @wl = Worklog.where("user_id = ? and day = ?",session[:user_id],@day).first
-    if @wl
-      redirect_to :action => 'edit',:id=> @wl.id
-    else
-      @worklog = Worklog.new()      
-    end
+    # @wl = Worklog.where("user_id = ? and day = ?",session[:user_id],@day).first
+    # if @wl
+    #   redirect_to :action => 'edit',:id=> @wl.id
+    # else
+    #   @worklog = Worklog.new()      
+    # end
+    @worklog = Worklog.new()      
   end
   
   
