@@ -37,17 +37,29 @@ RAILS_ENV=production bundle exec rake worklogs:day day=2013-08-01
 
 #week report
 RAILS_ENV=production bundle exec rake worklogs:week week=23
-
 ```
 
 Add the task into crontable
 ```
-$ cat /etc/cron.daily/week.sh
+[root@smbserver ~]# crontab -l
+02 23 * * 1-5 /bin/bash -l -c  /shell/day.sh 
+30 14 * * 0 /bin/bash -l -c  /shell/week.sh
+```
+
+```
+[root@smbserver ~]# cat /shell/week.sh
 #!/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/opt/ruby/bin
-cd /opt/redmine/
+cd /opt/www/redmine/current
+RAILS_ENV=production bundle exec rake worklogs:week
+
+[root@smbserver ~]# cat /shell/day.sh 
+#!/bin/bash
+#source /usr/local/rvm/scripts/rvm
+cd /opt/www/redmine/current
 RAILS_ENV=production bundle exec rake worklogs:day
 ```
+ 
 
 ### Uninstallation
 
