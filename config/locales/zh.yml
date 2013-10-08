@@ -23,6 +23,7 @@ zh:
   setting_about_info_desc: "定制你的约定和说明."
   setting_mail_footer: "邮件提醒"
   setting_mail_footer_desc: "邮件提醒的结尾文字."
+  sidebar_by: "过滤器"
   sidebar_by_user: "按用户"
   sidebar_by_day: "按时间"
   sidebar_about: "约定和说明"
