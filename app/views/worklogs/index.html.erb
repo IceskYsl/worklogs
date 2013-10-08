@@ -3,7 +3,7 @@
 	
 <h2><%=worklogs_title(params[:typee])%></h2>
 <%@worklogs.each do |w|%>
-<h3><%= avatar(w.author, :size => "18")%> <%=(w.typee == 0) ? "日报" : "周报"%>: <%=h w.day %>(周<%=DateTime.parse(w.day).strftime('%u').to_s%>)</h3>
+<h3><%= avatar(w.author, :size => "18")%> <%=(w.typee == 0) ? "#{l(:index_type_day)}" : "#{l(:index_type_week)}"%>: <%=h w.day %>(<%=DateTime.parse(w.day).strftime('%a').to_s%>)</h3>
 <div class="contextual">
 <%=link_to "", {:action => 'edit', :id => w.id}, :class => 'icon icon-edit', :accesskey => accesskey(:edit) if can_edit?(w)%>
 </div>
@@ -11,8 +11,8 @@
 <div class="wiki">
 	<table width="100%">
 		<tr>
-			<td width="60%"><%=(w.typee == 0) ? "今日Done" : "本周Done"%></td>
-			<td width="40%"><%=(w.typee == 0) ? "明日Todo" : "下周Todo"%></td>
+			<td width="60%"><%=(w.typee == 0) ? "#{l(:index_item_day_done)}" : "#{l(:index_item_week_done)}"%></td>
+			<td width="40%"><%=(w.typee == 0) ? "#{l(:index_item_next_day_todo)}" : "#{l(:index_item_next_week_todo)}"%></td>
 		</tr>
 		<tr>
 			<td><%= textilizable(w.do) %></td>

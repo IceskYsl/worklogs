@@ -2,7 +2,7 @@ Redmine::Plugin.register :worklogs do
   name 'Worklogs'
   author 'Iceskysl'
   description 'This is a worklogs plugin for Redmine'
-  version '0.2.2'
+  version '0.2.3'
   url 'https://github.com/IceskYsl/worklogs'
   author_url 'http://my.eoe.cn/iceskysl'
   

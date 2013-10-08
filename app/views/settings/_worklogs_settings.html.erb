@@ -6,38 +6,38 @@
 </p> -->
 
 <p>
-  <label>不需要发送日报的用户</label>
+  <label><%=l(:setting_no_worklog_user)%></label>
   <%= text_field_tag 'settings[WORKLOGS_UN_IDS]', settings['WORKLOGS_UN_IDS'] || "1" %>
   <br />
-  <em>输入不需要发日报的用户Id,多个id用英文逗号分割.</em>
+  <em><%=l(:setting_no_worklog_user_desc)%></em>
 </p>
 
 <p>
-  <label>抄送邮件地址</label>
+  <label><%=l(:setting_cc_worklog_user)%></label>
   <%= text_field_tag 'settings[WORKLOGS_MAIL_CC]', settings['WORKLOGS_MAIL_CC'] || "" %>
   <br />
-  <em>输入发送汇总邮件时需要抄送的邮件地址.</em>
+  <em><%=l(:setting_cc_worklog_user_desc)%></em>
 </p>
 
 <p>
-  <label>分页条数</label>
+  <label><%=l(:setting_page_num)%></label>
   <%= text_field_tag 'settings[WORKLOGS_PAGINATION_LIMIT]', settings['WORKLOGS_PAGINATION_LIMIT'] || 20 %>
   <br />
-  <em>输入日志列表每页的条数，需大于0.</em>
+  <em><%=l(:setting_page_num_desc)%></em>
 </p>
 
 <hr/>
 
 <p>
-  <label>约定和说明</label>
+  <label><%=l(:setting_about_info)%></label>
   <%= text_area_tag 'settings[WORKLOGS_ABOUT]', (settings["WORKLOGS_ABOUT"] || l(:text_worklogs_about)).force_encoding("utf-8"),:cols => 60, :rows => 25 %>
   <br />
-  <em>定制你的约定和说明.</em>
+  <em><%=l(:setting_about_info_desc)%></em>
 </p>
 
 <p>
-  <label>邮件提醒</label>
+  <label><%=l(:setting_mail_footer)%></label>
   <%= text_area_tag 'settings[WORKLOGS_MAIL_FOOTER]', (settings["WORKLOGS_MAIL_FOOTER"] || l(:text_worklogs_mail_footer)).force_encoding("utf-8"),:cols => 60, :rows => 15 %>
   <br />
-  <em>邮件提醒的结尾文字.</em>
+  <em><%=l(:setting_mail_footer_desc)%></em>
 </p>
