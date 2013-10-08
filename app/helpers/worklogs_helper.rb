@@ -10,11 +10,11 @@ module WorklogsHelper
   
   def worklogs_title(typee=nil)
     if typee == "0"
-      return "日报日志"
+      return l(:worklogs_title_day)
     elsif typee == "1"
-      return "周报日志"
+      return l(:worklogs_title_week)
     else
-      return "工作日志"
+      return l(:worklogs_title_else)
     end
   end
   
