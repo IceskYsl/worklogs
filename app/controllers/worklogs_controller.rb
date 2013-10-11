@@ -2,6 +2,7 @@
 class WorklogsController < ApplicationController
   model_object Worklog
   unloadable
+
   # before_filter :authorize, :only => [:index,:my,:new]
   
   before_filter :find_model_object, :except => [:index, :new, :create,:my]
@@ -50,6 +51,8 @@ class WorklogsController < ApplicationController
     @typee = params[:typee]
     load_worklogs
   end
+  
+
   
   def my
     @user_id = session[:user_id]

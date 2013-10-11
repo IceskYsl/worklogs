@@ -79,3 +79,14 @@ Configure
 demo
 ![pic](https://f.cloud.github.com/assets/5537/719898/31cfb77e-dfa0-11e2-8618-6dd6c6bc31fd.jpg)
 
+## More Plugins(for Redmine)
+
+Holidays:  a holidays plugin for Redmine.
+https://github.com/IceskYsl/holidays
+
+address_books: a address book plugin for Redmine
+https://github.com/IceskYsl/address_books
+
+Worklogs: a worklogs plugin for Redmine
+https://github.com/IceskYsl/worklogs
+
