@@ -81,12 +81,24 @@ demo
 
 ## More Plugins(for Redmine)
 
-Holidays:  a holidays plugin for Redmine.
+### Holidays
+
+a holidays plugin for Redmine.
+
 https://github.com/IceskYsl/holidays
 
-address_books: a address book plugin for Redmine
+### address_books
+
+a address book plugin for Redmine
+
 https://github.com/IceskYsl/address_books
 
-Worklogs: a worklogs plugin for Redmine
+### Worklogs
+
+a worklogs plugin for Redmine
+
 https://github.com/IceskYsl/worklogs
 
+## Donate
+
+[![donate via paypal](https://www.paypal.com/en_US/i/btn/x-click-but04.gif "donate via paypal")](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=iceskysl%40gmail%2ecom&lc=US&item_name=Donate Iceskysl &amount=0%2e99&currency_code=USD&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest "donate via paypal")
