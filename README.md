@@ -81,23 +81,11 @@ demo
 
 ## More Plugins(for Redmine)
 
-### Holidays
+**Holidays** A holidays plugin for Redmine. (https://github.com/IceskYsl/holidays)
 
-a holidays plugin for Redmine.
+**address_books** A address book plugin for Redmine. (https://github.com/IceskYsl/address_books)
 
-https://github.com/IceskYsl/holidays
-
-### address_books
-
-a address book plugin for Redmine
-
-https://github.com/IceskYsl/address_books
-
-### Worklogs
-
-a worklogs plugin for Redmine
-
-https://github.com/IceskYsl/worklogs
+**Worklogs** A worklogs plugin for Redmine. (https://github.com/IceskYsl/worklogs)
 
 ## Donate
 
