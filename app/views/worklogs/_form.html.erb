@@ -1,17 +1,19 @@
 <%= error_messages_for @worklog %>
+<div class="worklog_todo"> 
+<fieldset>
+<legend>Todo</legend>
+<div class="worklog_item" id="todo_day" style="display:<%=(@worklog && @worklog.typee == 0) ? 'block' : 'none'%>;padding-left:180px;">
+	<%= textilizable(@day_todo.todo) %>
+</div>
+
+<div class="worklog_item" id="todo_week" style="display:<%=(@worklog && @worklog.typee == 1) ? 'block' : 'none'%>;padding-left:180px;">
+	<%= textilizable(@week_todo.todo) %>
+</div>
+</fieldset>
+</div>
+ <br />
 
 <div class="box tabular"> 
-	<fieldset>
-	<legend>Todo</legend>
- 	<div class="worklog_item" id="todo_day" style="display:<%=(@worklog && @worklog.typee == 0) ? 'block' : 'none'%>;padding-left:180px;">
-		<%= textilizable(@day_todo.todo) %>
-	</div>
-	
-	<div class="worklog_item" id="todo_week" style="display:<%=(@worklog && @worklog.typee == 1) ? 'block' : 'none'%>;padding-left:180px;">
-		<%= textilizable(@week_todo.todo) %>
-	</div>
- 	</fieldset>
-	
 	<fieldset>
 	<legend>日报/周报</legend>
 <p><%= l(:field_day) %>: <%=@day%></p>
