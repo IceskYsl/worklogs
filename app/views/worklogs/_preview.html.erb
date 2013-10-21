@@ -1,0 +1,42 @@
+<fieldset class="preview"><legend><%= l(:label_preview) %></legend>
+
+
+<div class="wiki">
+	<h3><%= avatar(@worklog.author, :size => "18")%> <%=(@worklog.typee == 0) ? "#{l(:index_type_day)}" : "#{l(:index_type_week)}"%>: <%=h @worklog.day.to_s %>(<%=DateTime.parse(@worklog.day.to_s).strftime('%A')%>)</h3>
+	
+	<table width="100%">
+		<tr>
+			<td width="60%"><%=(@worklog.typee == 0) ? "#{l(:index_item_day_done)}" : "#{l(:index_item_week_done)}"%></td>
+			<td width="40%"><%=(@worklog.typee == 0) ? "#{l(:index_item_next_day_todo)}" : "#{l(:index_item_next_week_todo)}"%></td>
+		</tr>
+		<tr>
+			<td><%= textilizable(@worklog.do) %></td>
+			<td><%= textilizable(@worklog.todo) %></td>
+		</tr>
+		<%unless textilizable(@worklog.feel).blank?%>
+		<tr>
+			<td COLSPAN=2 BGCOLOR="#eee">
+				<%=textilizable("☺心得体会: "+@worklog.feel) %>
+			</td>
+		</tr>
+		<%end%>
+	</table>
+	
+	<%if (@worklog.typee > 0  &&  !@worklog.score.blank?) %>
+	<table width="100%">
+		<tr>
+			<td COLSPAN=2 BGCOLOR="#eee">
+ 				<%=l(:index_item_score)%>: <%=@worklog.score%> （<%=l(:index_item_good)%> | <%=l(:index_item_nogood)%>）
+ 			</td>
+		</tr>
+		<tr>
+			<td><%= textilizable(@worklog.good) %></td>
+			<td><%= textilizable(@worklog.nogood) %></td>
+		</tr>
+	</table>
+	<%end%>
+
+	
+</div>
+
+</fieldset>
