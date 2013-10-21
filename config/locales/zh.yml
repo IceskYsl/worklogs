@@ -39,9 +39,13 @@ zh:
   index_item_week_done: "本周Done"
   index_item_next_day_todo: "明日Todo"
   index_item_next_week_todo: "下周Todo"
+  index_item_next_day_plan_todo: "今日计划Todo"
+  index_item_next_week_plan_todo: "本周计划Todo"
   index_item_score: "自评分数"
   index_item_good: "做的好的"
   index_item_nogood: "有待改进"
+  text_no_day_plan: "你昨天的日报没有制定今日计划,建议你养成做计划的好习惯."
+  text_no_week_plan: "你上周的周报没有制定今日计划,建议你养成做计划的好习惯." 
   mail_subject_worklog_day: "工作日志:%{value}"
   mail_subject_worklog_week: "工作日志: 第%{value}周"
   mail_body_worklog_day: '今天日报汇总情况如下：'
