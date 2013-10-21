@@ -72,12 +72,14 @@ class WorklogsController < ApplicationController
     @user_id = session[:user_id]
     @day = params[:day]
     load_worklogs
-    
     render :action => :index
   end
 
   def new
     @day = Date.today
+    @day_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,0).last
+    @week_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,1).last
+    
     # @wl = Worklog.where("user_id = ? and day = ?",session[:user_id],@day).first
     # if @wl
     #   redirect_to :action => 'edit',:id=> @wl.id
@@ -90,6 +92,9 @@ class WorklogsController < ApplicationController
   
   def edit
     @day = Date.today
+    @day_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,0).last
+    @week_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,1).last
+
   end
   
   def update
