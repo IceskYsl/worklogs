@@ -5,7 +5,7 @@ class WorklogsController < ApplicationController
 
   # before_filter :authorize, :only => [:index,:my,:new]
   
-  before_filter :find_model_object, :except => [:index, :new, :create,:my]
+  before_filter :find_model_object, :except => [:index, :new, :create,:my,:preview]
   before_filter :init_slider,:only => [:index, :my, :new, :edit]
   
   
@@ -50,6 +50,20 @@ class WorklogsController < ApplicationController
     @day = params[:day]
     @typee = params[:typee]
     load_worklogs
+  end
+  
+  def preview
+    # logger.info(params[:worklog])
+    
+    if params[:id].present? && worklog = Worklog.visible.find_by_id(params[:id])
+      @previewed = worklog
+    end
+    # @text = (params[:worklog] ? params[:worklog][:do] : nil)
+    @worklog = Worklog.new(params[:worklog])
+    @worklog.day = Date.today
+    @worklog.week = Date.today.strftime("%W").to_i
+    @worklog.author = User.current
+    render :partial => 'preview'
   end
   
 

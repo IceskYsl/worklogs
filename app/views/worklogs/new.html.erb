@@ -3,10 +3,13 @@
 <h2><%= l(:label_worklog_new) %></h2>
 
 
-<%= labelled_form_for @worklog, :url => worklogs_path do |f| %>
+<%= labelled_form_for @worklog, :url => worklogs_path, :html => { :id => 'worklog-form' } do |f| %>
   <%= render :partial => 'form', :locals => {:f => f} %>
   <%= submit_tag l(:button_create) %>
+  <%= preview_link preview_worklogs_path(), 'worklog-form' %>
 <% end %>
+
+<div id="preview" class="worklog"></div>
 
 
 <% content_for :sidebar do %>
