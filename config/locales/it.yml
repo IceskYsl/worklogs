@@ -28,6 +28,7 @@ it:
   sidebar_by: "Filtri"
   sidebar_by_user: "Per utente"
   sidebar_by_day: "Per giorno"
+  sidebar_by_typee: "Per Type"
   sidebar_about: "About"
   worklogs_title_day: "Attivita' del giorno"
   worklogs_title_week: "Attivita' della settimana"

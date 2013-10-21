@@ -28,6 +28,7 @@ en:
   sidebar_by: "Filters"
   sidebar_by_user: "By User"
   sidebar_by_day: "By Day"
+  sidebar_by_typee: "By Type"
   sidebar_about: "About"
   worklogs_title_day: "Day Worklogs"
   worklogs_title_week: "Week Worklogs"

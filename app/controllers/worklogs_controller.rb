@@ -32,6 +32,10 @@ class WorklogsController < ApplicationController
       worklogs_scope = worklogs_scope.where(:typee => @typee)
     end
     
+    unless @typee.blank?
+      worklogs_scope = worklogs_scope.where(:typee => @typee)
+    end
+    
     worklogs_scope = worklogs_scope.order("day desc,id desc")
     @limit =  Setting.plugin_worklogs['WORKLOGS_PAGINATION_LIMIT'].to_i || 20
     # @worklogs = worklogs_scope.all#.limit(@limit)
