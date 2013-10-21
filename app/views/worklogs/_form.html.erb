@@ -10,7 +10,7 @@
 <p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
 </fieldset>
 
-<fieldset id="score" style="display:none;">
+<fieldset id="score" style="display:<%=(@worklog && @worklog.typee == 0) ? 'none' : 'block'%>;">
 <legend>自我评价(本周)</legend>
 <p><%= f.select(:score, Worklog.score_collection, {:class=>'wiki-edit',:required => true})%> </p>
 <p><%= f.text_area :good, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
