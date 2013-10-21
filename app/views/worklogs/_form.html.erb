@@ -1,9 +1,34 @@
 <%= error_messages_for @worklog %>
 
 <div class="box tabular">
+	<fieldset>
+	<legend>日报/周报</legend>
 <p><%= l(:field_day) %>: <%=@day%></p>
-<p><%= f.select(:typee, Worklog.typee_collection, {:class=>'wiki-edit',:required => true})%> </p>
+<p><%= f.select(:typee, Worklog.typee_collection, {:class=>'wiki-edit',:required => true}, :onchange=>"hiddenScore(this.value)")%> </p>
 <p><%= f.text_area :do, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
 <p><%= f.text_area :todo, :required => true, :cols => 40, :rows => 10, :class => 'wiki-edit' %></p>
-<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 10, :class => 'wiki-edit' %></p>
+<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
+</fieldset>
+
+<fieldset id="score" style="display:none;">
+<legend>自我评价(本周)</legend>
+<p><%= f.select(:score, Worklog.score_collection, {:class=>'wiki-edit',:required => true})%> </p>
+<p><%= f.text_area :good, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
+<p><%= f.text_area :nogood, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
+</fieldset>
+
 </div>
+<%= wikitoolbar_for 'worklog_do' %>
+
+<script type="text/javascript">
+function hiddenScore(x)
+{
+	// alert(x)
+	var y=document.getElementById("score")
+	if (x == "0"){
+		document.getElementById("score").style.display = 'none';
+	}else{
+		document.getElementById("score").style.display = 'block';
+	}
+}
+</script>

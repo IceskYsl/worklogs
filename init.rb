@@ -12,7 +12,7 @@ Redmine::Plugin.register :worklogs do
     permission :new_worklogs, :worklogs => :new
   # end
   
-  menu :top_menu, :worklogs, { :controller => 'worklogs', :action => 'index' }, :caption => :label_worklog
+  menu :top_menu, :worklogs, { :controller => 'worklogs', :action => 'index' }, :caption => :label_worklog #, :if => User.current.allowed_to?({:controller => "worklogs", :action => "index"},nil,{:global => true})
 
   # menu :application_menu, :worklogs, { :controller => 'worklogs', :action => 'index' }, :caption => :label_worklog
   # menu :application_menu, :worklogs_my, { :controller => 'worklogs', :action => 'my'}, :caption => :label_worklog_my ,:if => Proc.new { params[:controller] == "worklogs" }

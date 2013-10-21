@@ -9,6 +9,7 @@
 </div>
 <p class="author"><%= authoring w.created_at, w.author %></p>
 <div class="wiki">
+	
 	<table width="100%">
 		<tr>
 			<td width="60%"><%=(w.typee == 0) ? "#{l(:index_item_day_done)}" : "#{l(:index_item_week_done)}"%></td>
@@ -20,11 +21,27 @@
 		</tr>
 		<%unless textilizable(w.feel).blank?%>
 		<tr>
-			<td COLSPAN=2 BGCOLOR="#eee"><%=textilizable("☺ "+w.feel) %></td>
+			<td COLSPAN=2 BGCOLOR="#eee">
+				<%=textilizable("☺心得体会: "+w.feel) %>
+			</td>
 		</tr>
 		<%end%>
 	</table>
 	
+	<%unless w.typee == 0%>
+	<table width="100%">
+		<tr>
+			<td COLSPAN=2 BGCOLOR="#eee">
+ 				<%=l(:index_item_score)%>: <%=w.score%> （<%=l(:index_item_good)%> | <%=l(:index_item_nogood)%>）
+ 			</td>
+		</tr>
+		<tr>
+			<td><%= textilizable(w.good) %></td>
+			<td><%= textilizable(w.nogood) %></td>
+		</tr>
+	</table>
+	<%end%>
+
 	
 </div>
 <%end%>
