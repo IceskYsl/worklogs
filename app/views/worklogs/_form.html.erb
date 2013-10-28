@@ -1,4 +1,10 @@
 <%= error_messages_for @worklog %>
+
+<div class="box tabular"> 
+<p><%= l(:field_day) %>: <%=@day%></p>
+<p><%= f.select(:typee, Worklog.typee_collection, {:class=>'wiki-edit',:required => true}, :onchange=>"hiddenScore(this.value)")%> </p>
+</div>
+
 <div class="worklog_todo"> 
 <fieldset>
 <legend>Todo</legend>
@@ -24,37 +30,49 @@
 </div>
 <br />
 
-<div class="box tabular"> 
+
+
+<div class="box tabular" id="day"> 
 	<fieldset>
-	<legend>日报/周报</legend>
-<p><%= l(:field_day) %>: <%=@day%></p>
-<p><%= f.select(:typee, Worklog.typee_collection, {:class=>'wiki-edit',:required => true}, :onchange=>"hiddenScore(this.value)")%> </p>
-<p><%= f.text_area :do, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
-<p><%= f.text_area :todo, :required => true, :cols => 40, :rows => 10, :class => 'wiki-edit' %></p>
-<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
-</fieldset>
+		<legend>日报</legend>
 
-<fieldset id="score" style="display:<%=(@worklog && @worklog.typee == 0) ? 'none' : 'block'%>;">
-<legend>自我评价(本周)</legend>
-<p><%= f.select(:score, Worklog.score_collection, {:class=>'wiki-edit',:required => true})%> </p>
-<p><%= f.text_area :good, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
-<p><%= f.text_area :nogood, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
-</fieldset>
-
+		<p><%= f.text_area :do, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :todo, :required => true, :cols => 40, :rows => 10, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
+	</fieldset>
 </div>
+
+<div class="box tabular" id="week" style="display:<%=(@worklog && @worklog.typee == 0) ? 'none' : 'block'%>;"> 
+	<fieldset>
+		<legend>周报</legend>
+		<p><%= f.text_area :plan_done, :required => true, :cols => 40, :value => "#{l(:text_plan_done)}",:rows => 15, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :plan, :required => true, :cols => 40, :value => "#{l(:text_plan)}",:rows => 10, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
+	</fieldset>
+
+	<fieldset>
+		<legend>自我评价(本周)</legend>
+		<p><%= f.select(:score, Worklog.score_collection, {:class=>'wiki-edit',:required => true})%> </p>
+		<p><%= f.text_area :good, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
+		<p><%= f.text_area :nogood, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
+	</fieldset>
+</div>
+
 <%= wikitoolbar_for 'worklog_do' %>
 
 <script type="text/javascript">
 function hiddenScore(x)
 {
 	// alert(x)
-	var y=document.getElementById("score")
-	if (x == "0"){
-		document.getElementById("score").style.display = 'none';
+	var y=document.getElementById("week")
+	if (x == "0"){ //day
+		document.getElementById("day").style.display = 'block';
+		document.getElementById("week").style.display = 'none';
 		document.getElementById("todo_day").style.display = 'block';
 		document.getElementById("todo_week").style.display = 'none';
 	}else{
-		document.getElementById("score").style.display = 'block';
+		document.getElementById("day").style.display = 'none';
+		document.getElementById("week").style.display = 'block';
 		document.getElementById("todo_day").style.display = 'none';
 		document.getElementById("todo_week").style.display = 'block';
 	}
