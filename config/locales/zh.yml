@@ -47,6 +47,7 @@ zh:
   index_item_score: "自评分数"
   index_item_good: "做的好的"
   index_item_nogood: "有待改进"
+  howto_do_a_plan: "如何制定一个有效目标"
   text_no_day_plan: "你昨天的日报没有制定今日计划,建议你养成做计划的好习惯."
   text_no_week_plan: "你上周的周报没有制定今日计划,建议你养成做计划的好习惯." 
   text_plan_done: "本周完成的计划内目标：\n1.\n\n\n\n\n本周完成的计划外目标：\n1.\n"
