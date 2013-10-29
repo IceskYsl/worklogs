@@ -16,11 +16,11 @@ class Worklog < ActiveRecord::Base
   end
   
   def plan= plan
-    self.todo = plan
+    self.todo = plan if self.typee == 1
   end
 
   def plan_done= plan_done
-     self.do = plan_done
+     self.do = plan_done if self.typee == 1
   end
 
   
