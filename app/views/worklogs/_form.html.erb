@@ -32,7 +32,7 @@
 
 
 
-<div class="box tabular" id="day"> 
+<div class="box tabular" id="day" style="display:<%=(@worklog && @worklog.typee == 1) ? 'none' : 'block'%>;"> 
 	<fieldset>
 		<legend>日报</legend>
 
@@ -47,8 +47,8 @@
 		<legend>周报 (<%= link_to(l(:howto_do_a_plan), "/boards/3/topics/1014",:target => '_blank') %>)</legend>
 
 		
-		<p><%= f.text_area :plan_done, :required => true, :cols => 40, :value => "#{l(:text_plan_done)}",:rows => 15, :class => 'wiki-edit' %></p>
-		<p><%= f.text_area :plan, :required => true, :cols => 40, :value => "#{l(:text_plan)}",:rows => 10, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :plan_done, :required => true, :cols => 40, :value => "#{@worklog.plan_done || l(:text_plan_done)}",:rows => 15, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :plan, :required => true, :cols => 40, :value => "#{@worklog.plan || l(:text_plan)}",:rows => 10, :class => 'wiki-edit' %></p>
 		<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
 	</fieldset>
 
