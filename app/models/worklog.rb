@@ -4,7 +4,7 @@ class Worklog < ActiveRecord::Base
   unloadable
   belongs_to :author, :class_name => "User", :foreign_key => "user_id"
   
-  attr_accessor :plan,:plan_done
+  attr_accessor :plan,:plan_done,:week_feel
   
   TYPEE = {"day" => 0,"week" => 1} #, "month" => 2
   SCORE = {"1分（最差）" => 1, "2分" => 2, "3分" => 3, "4分" => 4, "5分" => 5, "6分（及格）" => 6, "7分" => 7, "8分" => 8, "9分" => 9, "10分（最好）" => 10}
@@ -21,6 +21,10 @@ class Worklog < ActiveRecord::Base
 
   def plan_done= plan_done
      self.do = plan_done if self.typee == 1
+  end
+  
+  def week_feel= week_feel
+    self.feel = week_feel if self.typee == 1
   end
 
   

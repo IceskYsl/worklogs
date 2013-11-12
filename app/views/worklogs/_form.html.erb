@@ -49,7 +49,7 @@
 		
 		<p><%= f.text_area :plan_done, :required => true, :cols => 40, :value => "#{@worklog.plan_done || l(:text_plan_done)}",:rows => 15, :class => 'wiki-edit' %></p>
 		<p><%= f.text_area :plan, :required => true, :cols => 40, :value => "#{@worklog.plan || l(:text_plan)}",:rows => 10, :class => 'wiki-edit' %></p>
-		<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :week_feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
 	</fieldset>
 
 	<fieldset>
