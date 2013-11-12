@@ -38,7 +38,7 @@
 
 		<p><%= f.text_area :do, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
 		<p><%= f.text_area :todo, :required => true, :cols => 40, :rows => 10, :class => 'wiki-edit' %></p>
-		<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :feel, :required => false, :value => "#{@worklog.feel}",:cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
 	</fieldset>
 </div>
 
