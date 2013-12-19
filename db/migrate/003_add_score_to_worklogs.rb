@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AddScoreToWorklogs < ActiveRecord::Migration
   def up
     add_column :worklogs, :score, :integer

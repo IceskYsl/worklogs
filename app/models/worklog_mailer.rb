@@ -1,3 +1,4 @@
+#encoding: utf-8
 class WorklogMailer < Mailer
   def self.default_url_options
     { :host => Setting.host_name, :protocol => Setting.protocol }

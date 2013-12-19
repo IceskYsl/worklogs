@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Worklog < ActiveRecord::Base
   include Redmine::SafeAttributes
   

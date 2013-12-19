@@ -1,3 +1,4 @@
+#encoding: utf-8
 class CreateWorklogs < ActiveRecord::Migration
   def change
     create_table :worklogs do |t|

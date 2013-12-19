@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AddFeelToWorklogs < ActiveRecord::Migration
   def up
     add_column :worklogs, :feel, :text
