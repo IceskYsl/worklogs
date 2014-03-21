@@ -6,6 +6,7 @@ it:
   label_worklog_new: "Aggiunta mia attivita'"
   label_worklog_edit: "Modifica mia attivita'"
   label_worklog_day: "Giorno"
+  label_feel: "☺feel:"
   label_worklog_week: "Settimana"
   field_day: "Giorno"
   field_typee: "Tipo"

@@ -6,6 +6,7 @@ zh:
   label_worklog_new: "添加工作日志"
   label_worklog_edit: "编辑工作日志"
   label_worklog_day: "日报"
+  label_feel: "☺心得体会:"
   label_worklog_week: "周报"
   field_day: "日期"
   field_typee: "类型"  

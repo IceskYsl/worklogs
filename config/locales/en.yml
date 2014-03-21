@@ -6,6 +6,7 @@ en:
   label_worklog_new: "Add My Worklog"
   label_worklog_edit: "Edit My Worklog"
   label_worklog_day: "Day"
+  label_feel: "☺feel:"
   label_worklog_week: "Week"
   field_day: "Day"
   field_typee: "Type"
