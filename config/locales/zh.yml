@@ -51,8 +51,8 @@ zh:
   howto_do_a_plan: "如何制定一个有效目标"
   text_no_day_plan: "你昨天的日报没有制定今日计划,建议你养成做计划的好习惯."
   text_no_week_plan: "你上周的周报没有制定今日计划,建议你养成做计划的好习惯." 
-  text_plan_done: "本周完成的计划内目标：\n1.\n\n\n\n\n本周完成的计划外目标：\n1.\n"
-  text_plan: "必须要完成的目标：\n1.\n\n\n其他计划：\n1.\n"
+  text_plan_done: "你本周计划和交付的最小工作单元：\n1."
+  text_plan: "你下周最小可交付工作单元：\n1."
   mail_subject_worklog_day: "工作日志:%{value}"
   mail_subject_worklog_week: "工作日志: 第%{value}周"
   mail_body_worklog_day: '今天日报汇总情况如下：'

@@ -32,9 +32,6 @@ class WorklogsController < ApplicationController
       worklogs_scope = worklogs_scope.where(:typee => @typee)
     end
     
-    unless @typee.blank?
-      worklogs_scope = worklogs_scope.where(:typee => @typee)
-    end
     
     worklogs_scope = worklogs_scope.order("day desc,id desc")
     @limit =  Setting.plugin_worklogs['WORKLOGS_PAGINATION_LIMIT'].to_i || 20
@@ -90,7 +87,8 @@ class WorklogsController < ApplicationController
     # else
     #   @worklog = Worklog.new()      
     # end
-    @worklog = Worklog.new()      
+    @worklog = Worklog.new()    
+    @worklog.typee = 1  
   end
   
   
@@ -117,8 +115,11 @@ class WorklogsController < ApplicationController
     @worklog.day = Date.today
     @worklog.week = Date.today.strftime("%W").to_i
     @worklog.author = User.current
-    @worklog.save
-    redirect_to worklogs_path()
+    if @worklog.save
+      redirect_to worklogs_path()
+    else
+    end
+    
   end
 
 
