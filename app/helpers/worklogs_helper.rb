@@ -18,5 +18,18 @@ module WorklogsHelper
       return l(:worklogs_title_else)
     end
   end
+
+  def score_text(score)
+    case score
+    when 1
+      return "A"
+    when 2
+      return "B"
+    when 3
+      return "C"
+    else
+      return "X"
+    end
+  end
   
 end
