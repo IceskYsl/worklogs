@@ -54,13 +54,13 @@
 <fieldset>
 <legend>Leader评价</legend>
 
-<%= labelled_form_for @worklog_review, :url => review_worklog_path(:id=>@worklog.id), :html => { :id => 'worklog-form' } do |f| %>
+<%= labelled_form_for @worklog_review, :url => review_worklog_path(:id=>@worklog.id), :html => { :id => 'worklog_review-form' } do |f| %>
 	
 	<p>
-	<%= f.select(:score, WorklogReview.scores_collection, :class=>'wiki-edit',:required => true,:label=>'field_worklog_score')%> 
+	<%= f.select(:score, WorklogReview.scores_collection, :class=>'wiki-edit',:required => true,:label => :field_worklog_score)%> 
 	</p>
 	 	<p>
-	<%= f.text_area :review, :required => true, :label=>'field_worklog_review',:cols => 40, :rows => 5, :class => 'wiki-edit' %>
+	<%= f.text_area :review, :required => true, :label => :field_worklog_review,:cols => 40, :rows => 10, :class => 'wiki-edit' %>
 	<em class="info">
 		我的反馈意见.
 	</em>
