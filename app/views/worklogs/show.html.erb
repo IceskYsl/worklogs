@@ -40,7 +40,7 @@
 
 </div>
 
-<h3>大家的反馈</h3>
+<h3>Leader评价</h3>
 <div class="box"> 
 	<%@worklog_reviews.each do |cl|%>
 		<fieldset>
@@ -52,17 +52,17 @@
 
 <div class="box tabular"> 
 <fieldset>
-<legend>我的意见反馈</legend>
+<legend>Leader评价</legend>
 
 <%= labelled_form_for @worklog_review, :url => review_worklog_path(:id=>@worklog.id), :html => { :id => 'worklog-form' } do |f| %>
 	
 	<p>
-	<%= f.select(:score, WorklogReview.scores_collection, :class=>'wiki-edit',:required => true)%> 
+	<%= f.select(:score, WorklogReview.scores_collection, :class=>'wiki-edit',:required => true,:label=>'field_worklog_score')%> 
 	</p>
 	 	<p>
-	<%= f.text_area :review, :required => true, :lable=>'field_worklog_review',:cols => 40, :rows => 5, :class => 'wiki-edit' %>
+	<%= f.text_area :review, :required => true, :label=>'field_worklog_review',:cols => 40, :rows => 5, :class => 'wiki-edit' %>
 	<em class="info">
-		我的的反馈意见.
+		我的反馈意见.
 	</em>
 </p>
 	 <%= submit_tag l(:button_create) %>

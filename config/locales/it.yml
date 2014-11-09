@@ -1,5 +1,7 @@
 # Italian strings go here for Rails i18n
 it:
+  field_worklog_score: "Score"
+  field_worklog_review: "Review"
   label_worklog: "Attivita'"
   label_all_worklog: "Tutte le attivita'"
   label_worklog_my: "Mie attivita'"
