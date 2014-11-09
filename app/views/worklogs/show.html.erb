@@ -1,0 +1,77 @@
+<%=render :partial => "nav" %>
+<h2>周报详情</h2>
+
+<p class="author"><%= authoring @worklog.created_at, @worklog.author %> </p>
+
+<div class="wiki">
+	
+	<table width="100%">
+		<tr>
+			<td width="60%"><%=(@worklog.typee == 0) ? "#{l(:index_item_day_done)}" : "#{l(:index_item_week_done)}"%></td>
+			<td width="40%"><%=(@worklog.typee == 0) ? "#{l(:index_item_next_day_todo)}" : "#{l(:index_item_next_week_todo)}"%></td>
+		</tr>
+		<tr>
+			<td><%= textilizable(@worklog.do) %></td>
+			<td><%= textilizable(@worklog.todo) %></td>
+		</tr>
+		<%unless textilizable(@worklog.feel).blank?%>
+		<tr>
+			<td COLSPAN=2 BGCOLOR="#eee">
+				<%=textilizable("#{l(:label_feel)} "+@worklog.feel) %>
+			</td>
+		</tr>
+		<%end%>
+	</table>
+
+
+	<%if (@worklog.typee > 0  &&  !@worklog.score.blank?) %>
+	<table width="100%">
+		<tr>
+			<td COLSPAN=2 BGCOLOR="#eee">
+ 				<%=l(:index_item_score)%>: <%=score_text @worklog.score%> （<%=l(:index_item_good)%> | <%=l(:index_item_nogood)%>）
+ 			</td>
+		</tr>
+		<tr>
+			<td><%= textilizable(@worklog.good) %></td>
+			<td><%= textilizable(@worklog.nogood) %></td>
+		</tr>
+	</table>
+	<%end%>
+
+</div>
+
+<h3>大家的反馈</h3>
+<div class="box"> 
+	<%@worklog_reviews.each do |cl|%>
+		<fieldset>
+		<legend><%=cl.user.name%>：<%=cl.like_text%> （<%=cl.created_at%>）</legend>
+		<%=textilizable cl.review%>
+		</fieldset>
+	<%end%>
+</div>
+
+<div class="box tabular"> 
+<fieldset>
+<legend>我的意见反馈</legend>
+
+<%= labelled_form_for @worklog_review, :url => review_worklog_path(:id=>@worklog.id), :html => { :id => 'worklog-form' } do |f| %>
+	
+	<p>
+	<%= f.select(:score, WorklogReview.scores_collection, :class=>'wiki-edit',:required => true)%> 
+	</p>
+	 	<p>
+	<%= f.text_area :review, :required => true, :lable=>'field_worklog_review',:cols => 40, :rows => 5, :class => 'wiki-edit' %>
+	<em class="info">
+		我的的反馈意见.
+	</em>
+</p>
+	 <%= submit_tag l(:button_create) %>
+<% end %>
+</fieldset>
+</div>
+
+
+
+<% content_for :sidebar do %>
+	<%=render :partial => "sidebar" %>
+<% end %>

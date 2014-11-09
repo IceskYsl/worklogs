@@ -4,6 +4,7 @@ class Worklog < ActiveRecord::Base
   
   unloadable
   belongs_to :author, :class_name => "User", :foreign_key => "user_id"
+  has_many :worklog_reviews
   
   attr_accessor :plan,:plan_done,:week_feel
   

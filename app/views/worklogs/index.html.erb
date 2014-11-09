@@ -3,11 +3,19 @@
 	
 <h2><%=worklogs_title(params[:typee])%></h2>
 <%@worklogs.each do |w|%>
-<h3><%= avatar(w.author, :size => "18")%> <%=(w.typee == 0) ? "#{l(:index_type_day)}" : "#{l(:index_type_week)}"%>: <%=h w.day %>(<%=DateTime.parse(w.day).strftime('%A').to_s%>)</h3>
+<h3>
+	<%= avatar(w.author, :size => "18")%> <%=(w.typee == 0) ? "#{l(:index_type_day)}" : "#{l(:index_type_week)}"%>: <%=h w.day %>(<%=DateTime.parse(w.day).strftime('%A').to_s%>)
+
+</h3>
 <div class="contextual">
 <%=link_to "", {:action => 'edit', :id => w.id}, :class => 'icon icon-edit', :accesskey => accesskey(:edit) if can_edit?(w)%>
+<%=link_to "详情&评价",worklog_path(:id=>w.id)%>
 </div>
-<p class="author"><%= authoring w.created_at, w.author %></p>
+
+
+<p class="author"><%= authoring w.created_at, w.author %> </p>
+
+
 <div class="wiki">
 	
 	<table width="100%">

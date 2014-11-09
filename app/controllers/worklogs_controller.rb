@@ -6,7 +6,7 @@ class WorklogsController < ApplicationController
   # before_filter :authorize, :only => [:index,:my,:new]
   
   before_filter :find_model_object, :except => [:index, :new, :create,:my,:preview]
-  before_filter :init_slider,:only => [:index, :my, :new, :edit]
+  before_filter :init_slider,:only => [:index, :my, :new, :edit, :show]
   
   
   def init_slider
@@ -98,7 +98,23 @@ class WorklogsController < ApplicationController
     @week_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,1).last
 
   end
+
+  def show
+    @worklog_reviews = @worklog.worklog_reviews
+    @worklog_review = WorklogReview.new()
+  end
   
+
+  def review
+    @worklog_reviews = WorklogReview.new(params[:worklog_review])
+    @worklog_reviews.user = User.current
+    @worklog_reviews.worklog = @worklog
+    if @worklog_reviews.save
+      flash[:notice] = l(:notice_successful_update)
+      redirect_to worklog_path(:id=>@worklog.id)
+    end
+  end
+
   def update
     # @worklog.safe_attributes = params[:worklog]
     @worklog.update_attributes(params[:worklog])

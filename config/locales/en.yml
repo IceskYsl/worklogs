@@ -63,4 +63,5 @@ en:
   permission_new_worklogs: 'add worklogs'
   text_worklogs_about: "text for about info at slider,you can change by yourself."
   text_worklogs_mail_footer: "some text for mail footer,you can change by yourself."
- 
+  field_worklog_score: "Score"
+  field_worklog_review: "Review"
