@@ -50,6 +50,19 @@
 	</table>
 	<%end%>
 
+	<%if (w.worklog_reviews) %>
+	<table width="100%">
+		<%w.worklog_reviews.each do |wr|%>
+		<tr>
+			<td BGCOLOR="#eee">Leader评价: <%=score_text wr.score%> , <%= authoring wr.created_at, wr.user %></td>
+		</tr>
+		<tr>
+			<td><%= textilizable(wr.review) %></td>
+		</tr>
+		<%end%>
+	</table>
+	<%end%>
+
 	
 </div>
 <%end%>
