@@ -4,7 +4,7 @@
 <h2><%=worklogs_title(params[:typee])%></h2>
 <%@worklogs.each do |w|%>
 <h3>
-	<%= avatar(w.author, :size => "18")%> <%=(w.typee == 0) ? "#{l(:index_type_day)}" : "#{l(:index_type_week)}"%>: <%=h w.day %>(<%=DateTime.parse(w.day).strftime('%A').to_s%>)
+	<%= avatar(w.author, :size => "18")%> <%=(w.typee == 0) ? "#{l(:index_type_day)}" : "#{l(:index_type_week)}"%>: <%=h w.day %>(第<%=DateTime.parse(w.day).strftime('%W').to_s%>周 - <%=DateTime.parse(w.day).strftime('%A').to_s%>)
 
 </h3>
 <div class="contextual">

@@ -22,9 +22,10 @@
   <legend onclick="toggleFieldset(this);"><%= l(:sidebar_by_day) %></legend>
   <div style="">
 	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:user_id=>params[:user_id],:typee=>params[:typee]},{} %><br />
-	<% @start.step(@last,-1) do |archive| 
-	day = archive.strftime("%Y-%m-%d") -%>	
-	<%=link_to day,{:controller=>"worklogs",:action=>"index",:day=>day,:user_id=>params[:user_id],:typee=>params[:typee]},{} %><br />
+	<% @start.step(@last,-7) do |archive| 
+	year = archive.strftime("%Y")	
+	week = archive.strftime("%W") -%>	
+	<%=link_to "#{year}年#{week}周",{:controller=>"worklogs",:action=>"index",:week=>week,:user_id=>params[:user_id],:typee=>params[:typee]},{} %><br />
 	<% end %>
   </div>
 </fieldset>

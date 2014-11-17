@@ -24,8 +24,8 @@ class WorklogsController < ApplicationController
       worklogs_scope = worklogs_scope.where(:user_id => @user_id)
     end
     
-    unless @day.blank?
-      worklogs_scope = worklogs_scope.where(:day => @day)
+    unless @week.blank?
+      worklogs_scope = worklogs_scope.where(:week => @week)
     end
     
     unless @typee.blank?
@@ -48,7 +48,7 @@ class WorklogsController < ApplicationController
 
   def index
     @user_id = params[:user_id]
-    @day = params[:day]
+    @week = params[:week]
     @typee = params[:typee]
     load_worklogs
   end
@@ -71,7 +71,7 @@ class WorklogsController < ApplicationController
   
   def my
     @user_id = session[:user_id]
-    @day = params[:day]
+    @week = params[:week]
     load_worklogs
     render :action => :index
   end
