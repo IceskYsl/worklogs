@@ -1,10 +1,10 @@
-<p>hey <%=@to_user.name%><br />
+<p>
+<%=@to_user.name%><br />
 <br />
 <%=@from_user.name%>评价了你的工作日志，内容如下:<br />
 ----------------<br />
 评分：<%=score_text @review.score%><br /><br />
 
-------
 评价：<br />
 <%=textilizable @review.review%>
 ----------------
