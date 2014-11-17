@@ -8,15 +8,6 @@
 	<%=link_to "Week",{:controller=>"worklogs",:action=>"index",:typee=>1,:day=>params[:day],:user_id=>params[:user_id]},{} %><br />
 </div>
 </fieldset>
-<fieldset id="filters" class="collapsible">
-  <legend onclick="toggleFieldset(this);"><%= l(:sidebar_by_user) %></legend>
-  <div style="">
-	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:day=>params[:day],:typee=>params[:typee]},{} %><br />
-	<%@users.each do |user|%>
-		<%=link_to user.name(),{:controller=>"worklogs",:action=>"index",:user_id=>user.id,:day=>params[:day],:typee=>params[:typee]}%> <br />
-	<%end%>
-  </div>
-</fieldset>
 
 <fieldset id="filters" class="collapsible">
   <legend onclick="toggleFieldset(this);"><%= l(:sidebar_by_day) %></legend>
@@ -29,6 +20,18 @@
 	<% end %>
   </div>
 </fieldset>
+
+<fieldset id="filters" class="collapsible">
+  <legend onclick="toggleFieldset(this);"><%= l(:sidebar_by_user) %></legend>
+  <div style="">
+	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:day=>params[:day],:typee=>params[:typee]},{} %><br />
+	<%@users.each do |user|%>
+		<%=link_to user.name(),{:controller=>"worklogs",:action=>"index",:user_id=>user.id,:day=>params[:day],:typee=>params[:typee]}%> <br />
+	<%end%>
+  </div>
+</fieldset>
+
+
 
 
  
