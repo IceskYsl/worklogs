@@ -1,0 +1,14 @@
+<p>hey <%=@to_user.name%><br />
+
+<%=@from_user.name%>评价了你的工作日志，内容如下:<br />
+----------------<br />
+评分：<%=score_text @review.score%>
+
+------
+评价：<br />
+<%=textilizable @review.review%>
+<br />
+------<br />
+</p>
+
+<%= textilizable( Setting.plugin_worklogs['WORKLOGS_MAIL_FOOTER']) %>	

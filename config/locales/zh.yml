@@ -55,6 +55,7 @@ zh:
   text_no_week_plan: "你上周的周报没有制定今日计划,建议你养成做计划的好习惯." 
   text_plan_done: "你本周计划和交付的最小工作单元：\n1."
   text_plan: "你下周最小可交付工作单元：\n1."
+  mail_subject_worklog_review: "%{value}评价了你的工作日志"
   mail_subject_worklog_day: "工作日志:%{value}"
   mail_subject_worklog_week: "工作日志: 第%{value}周"
   mail_body_worklog_day: '今天日报汇总情况如下：'

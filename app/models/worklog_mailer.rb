@@ -1,7 +1,21 @@
 #encoding: utf-8
 class WorklogMailer < Mailer
+  add_template_helper(WorklogsHelper)
+  
   def self.default_url_options
     { :host => Setting.host_name, :protocol => Setting.protocol }
+  end
+
+  def review(review)
+    @review = review
+    @worklog = review.worklog
+    @from_user = review.user
+    @to_user = @worklog.author
+    recipient = @to_user.mail
+
+    #recipients
+    mail :to =>  recipient,
+         :subject => l(:mail_subject_worklog_review, @from_user.name)
   end
   
   # Builds a Mail::Message object used to email recipients of the added issue.  
