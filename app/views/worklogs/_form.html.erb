@@ -30,8 +30,8 @@
 
 <div class="worklog_item" id="todo_month" style="display:<%=(@worklog && @worklog.typee == 2) ? 'block' : 'none'%>;padding-left:180px;">
 	<h4><%=l(:index_item_next_month_plan_todo)%></h4>
-	<%if @week_todo && !@week_todo.todo.blank?%>
-		<%= textilizable(@week_todo.todo) %>
+	<%if @month_todo && !@month_todo.todo.blank?%>
+		<%= textilizable(@month_todo.todo) %>
 	<%else%>
 		<%=l(:text_no_week_plan)%>
 	<%end%>
@@ -39,8 +39,8 @@
 
 <div class="worklog_item" id="todo_year" style="display:<%=(@worklog && @worklog.typee == 3) ? 'block' : 'none'%>;padding-left:180px;">
 	<h4><%=l(:index_item_next_year_plan_todo)%></h4>
-	<%if @week_todo && !@week_todo.todo.blank?%>
-		<%= textilizable(@week_todo.todo) %>
+	<%if @year_todo && !@year_todo.todo.blank?%>
+		<%= textilizable(@year_todo.todo) %>
 	<%else%>
 		<%=l(:text_no_week_plan)%>
 	<%end%>
