@@ -59,3 +59,6 @@ it:
   permission_new_worklogs: "aggiungi attivita'"
   text_worklogs_about: "testo per le 'about info' allo slider, modificabile a piacimento."
   text_worklogs_mail_footer: "testo nel pie' di pagina dell'email, modificabile a piacimento." 
+  index_item_plan: Plan
+  index_item_done: Do
+  index_item_next_todo: Todo

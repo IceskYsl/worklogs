@@ -6,9 +6,11 @@
 	<%=link_to "ALL",{:controller=>"worklogs",:action=>"index",:day=>params[:day],:user_id=>params[:user_id]},{} %><br />
 	<%=link_to "Day",{:controller=>"worklogs",:action=>"index",:typee=>0,:day=>params[:day],:user_id=>params[:user_id]},{} %><br />
 	<%=link_to "Week",{:controller=>"worklogs",:action=>"index",:typee=>1,:day=>params[:day],:user_id=>params[:user_id]},{} %><br />
+	<%=link_to "Month",{:controller=>"worklogs",:action=>"index",:typee=>2,:day=>params[:day],:user_id=>params[:user_id]},{} %><br />
+	<%=link_to "Year",{:controller=>"worklogs",:action=>"index",:typee=>3,:day=>params[:day],:user_id=>params[:user_id]},{} %><br />
 </div>
 </fieldset>
-
+<!-- 
 <fieldset id="filters" class="collapsible">
   <legend onclick="toggleFieldset(this);"><%= l(:sidebar_by_day) %></legend>
   <div style="">
@@ -19,7 +21,7 @@
 	<%=link_to "#{year}年#{week}周",{:controller=>"worklogs",:action=>"index",:week=>week,:user_id=>params[:user_id],:typee=>params[:typee]},{} %><br />
 	<% end %>
   </div>
-</fieldset>
+</fieldset> -->
 
 <fieldset id="filters" class="collapsible">
   <legend onclick="toggleFieldset(this);"><%= l(:sidebar_by_user) %></legend>

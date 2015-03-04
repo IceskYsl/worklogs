@@ -4,7 +4,10 @@
 <h2><%=worklogs_title(params[:typee])%></h2>
 <%@worklogs.each do |w|%>
 <h3>
-	<%= avatar(w.author, :size => "18")%> <%=(w.typee == 0) ? "#{l(:index_type_day)}" : "#{l(:index_type_week)}"%>: <%=h w.day %>(第<%=DateTime.parse(w.day).strftime('%W').to_s%>周 - <%=DateTime.parse(w.day).strftime('%A').to_s%>)
+	<%= avatar(w.author, :size => "18")%> 
+	<%=worklogs_index_title(w.typee)%>:
+	<%=h w.day %>
+	(第<%=DateTime.parse(w.day).strftime('%W').to_s%>周 - <%=DateTime.parse(w.day).strftime('%A').to_s%>)
 
 </h3>
 <div class="contextual">
@@ -20,16 +23,18 @@
 	
 	<table width="100%">
 		<tr>
-			<td width="60%"><%=(w.typee == 0) ? "#{l(:index_item_day_done)}" : "#{l(:index_item_week_done)}"%></td>
-			<td width="40%"><%=(w.typee == 0) ? "#{l(:index_item_next_day_todo)}" : "#{l(:index_item_next_week_todo)}"%></td>
+			<td width="30%"><%="#{l(:index_item_plan)}"%></td>
+			<td width="40%"><%="#{l(:index_item_done)}"%></td>
+			<td width="30%"><%="#{l(:index_item_next_todo)}"%></td>
 		</tr>
 		<tr>
+			<td><%= textilizable(w.plan.try(:todo)) %></td>
 			<td><%= textilizable(w.do) %></td>
 			<td><%= textilizable(w.todo) %></td>
 		</tr>
 		<%unless textilizable(w.feel).blank?%>
 		<tr>
-			<td COLSPAN=2 BGCOLOR="#eee">
+			<td COLSPAN=3 BGCOLOR="#eee">
 				<%=textilizable("#{l(:label_feel)} "+w.feel) %>
 			</td>
 		</tr>

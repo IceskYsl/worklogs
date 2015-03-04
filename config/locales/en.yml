@@ -8,6 +8,8 @@ en:
   label_worklog_new: "Add My Worklog"
   label_worklog_edit: "Edit My Worklog"
   label_worklog_day: "Day"
+  label_worklog_month: "Month"
+  label_worklog_year: "Year"
   label_feel: "☺feel:"
   label_worklog_week: "Week"
   field_day: "Day"
@@ -41,27 +43,45 @@ en:
   sidebar_about: "About"
   worklogs_title_day: "Day Worklogs"
   worklogs_title_week: "Week Worklogs"
+  worklogs_title_month: "Month Worklogs"
+  worklogs_title_year: "Year Worklogs"
   worklogs_title_else: "Worklogs"
   index_type_day: "Day"
   index_type_week: "Week"
+  index_type_month: "Month"
+  index_type_year: "Year"
+  index_type_else: "Unknow"
   index_item_day_done: "Day Done"
   index_item_week_done: "Week Done"
+  index_item_month_done: "Month Done"
+  index_item_year_done: "Year Done"
   index_item_next_day_todo: "Next Day Todo"
   index_item_next_week_todo: "Next Week Todo"
+  index_item_next_month_todo: "Next Month Todo"
+  index_item_next_year_todo: "Next Year Todo"
   index_item_next_day_plan_todo: "Today Todo Plan"
   index_item_next_week_plan_todo: "This Week Todo Plan"
+  index_item_next_month_plan_todo: "This Month Todo Plan"
+  index_item_next_year_plan_todo: "This Year Todo Plan"
   index_item_score: "My Score"
   index_item_good: "Good"
   index_item_nogood: "Improve"
   text_no_day_plan: "your do not do a todo plan for today."
   text_no_week_plan: "your do not do a todo plan for this week."
+  text_no_month_plan: "your do not do a todo plan for this month."
+  text_no_year_plan: "your do not do a todo plan for this year."
   mail_subject_worklog_day: "%Day worklogs: {value}"
   mail_subject_worklog_week: "%Week worklogs: {value}"
   mail_body_worklog_day: 'Today Summary:'
   mail_body_worklog_week: 'Week Summary'
+  mail_body_worklog_month: 'Month Summary'
+  mail_body_worklog_year: 'Year Summary'
   project_module_worklogs: "Worklogs"
   permission_all_worklogs: 'Worklogs'
   permission_my_worklogs: 'my worklogs'
   permission_new_worklogs: 'add worklogs'
   text_worklogs_about: "text for about info at slider,you can change by yourself."
   text_worklogs_mail_footer: "some text for mail footer,you can change by yourself."
+  index_item_plan: Plan
+  index_item_done: Do
+  index_item_next_todo: Todo

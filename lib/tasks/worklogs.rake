@@ -10,7 +10,7 @@ namespace :worklogs do
   end
   desc 'week report for worklogs.'
   task :week => :environment  do
-    week = ENV['week'] || Date.today.strftime("%W")
+    week = ENV['week'] || (Date.today - 1.day).strftime("%W")
     puts "worklogs:week: week=>#{week}"
     Mailer.with_synched_deliveries do
       WorklogMailer.week_report(week).deliver 
@@ -18,5 +18,6 @@ namespace :worklogs do
   end
   
   
+  desc 'move to.'
   
 end

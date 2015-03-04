@@ -7,16 +7,18 @@
 	
 	<table width="100%">
 		<tr>
-			<td width="60%"><%=(@worklog.typee == 0) ? "#{l(:index_item_day_done)}" : "#{l(:index_item_week_done)}"%></td>
-			<td width="40%"><%=(@worklog.typee == 0) ? "#{l(:index_item_next_day_todo)}" : "#{l(:index_item_next_week_todo)}"%></td>
+			<td width="30%"><%="#{l(:index_item_plan)}"%></td>
+			<td width="40%"><%="#{l(:index_item_done)}"%></td>
+			<td width="30%"><%="#{l(:index_item_next_todo)}"%></td>
 		</tr>
 		<tr>
+			<td><%= textilizable(@worklog.plan.try(:todo)) %></td>
 			<td><%= textilizable(@worklog.do) %></td>
 			<td><%= textilizable(@worklog.todo) %></td>
 		</tr>
 		<%unless textilizable(@worklog.feel).blank?%>
 		<tr>
-			<td COLSPAN=2 BGCOLOR="#eee">
+			<td COLSPAN=3 BGCOLOR="#eee">
 				<%=textilizable("#{l(:label_feel)} "+@worklog.feel) %>
 			</td>
 		</tr>

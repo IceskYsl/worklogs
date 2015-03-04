@@ -15,7 +15,7 @@ class WorklogsController < ApplicationController
     # @last = Date.new(@start_topic.year,@start_topic.mon,1)
     @start=Date.today
     scope = User.logged.status(1)
-    @users =  scope.order("last_login_on desc").all - Worklog.no_need_users
+    @users =  scope.order("id asc").all - Worklog.no_need_users
   end
   
   def load_worklogs
@@ -80,6 +80,8 @@ class WorklogsController < ApplicationController
     @day = Date.today
     @day_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,0).last
     @week_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,1).last
+    @month_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,2).last
+    @year_todo = Worklog.where("user_id = ? and day <> ? and typee = ?", session[:user_id],Date.today,3).last
     
     # @wl = Worklog.where("user_id = ? and day = ?",session[:user_id],@day).first
     # if @wl
@@ -130,6 +132,8 @@ class WorklogsController < ApplicationController
     @worklog = Worklog.new(params[:worklog])
     @worklog.day = Date.today
     @worklog.week = Date.today.strftime("%W").to_i
+    @worklog.month = Date.today.strftime("%m").to_i
+    @worklog.year = Date.today.strftime("%Y").to_i
     @worklog.author = User.current
     if @worklog.save
       redirect_to worklogs_path()

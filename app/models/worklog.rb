@@ -8,33 +8,23 @@ class Worklog < ActiveRecord::Base
   
   attr_accessor :plan,:plan_done,:week_feel
   
-  TYPEE = {"day" => 0,"week" => 1} #, "month" => 2
+  TYPEE = {"day" => 0,"week" => 1, "month" => 2, "year" => 3}
   #SCORE = {"1分（最差）" => 1, "2分" => 2, "3分" => 3, "4分" => 4, "5分" => 5, "6分（及格）" => 6, "7分" => 7, "8分" => 8, "9分" => 9, "10分（最好）" => 10}
   SCORE = {"A：超出预期" => 1, "B：完成" => 2, "C：未完成或结果不达标" => 3}
 
+  def plan
+   case self.typee
+    when 0
+      @plan = Worklog.where("user_id = ? and day <> ? and typee = ?", self.user_id,self.day,0).last
+    when 1
+      @plan = Worklog.where("user_id = ? and week <> ? and typee = ?", self.user_id,self.week,1).last
+    when 2
+      @plan = Worklog.where("user_id = ? and month <> ? and typee = ?", self.user_id,self.month,2).last
+    when 3
+      @plan = Worklog.where("user_id = ? and year <> ? and typee = ?", self.user_id,self.year,3).last
+    end
 
-  
-
-  
-  def plan  
-    self.todo
-  end
-  
-  def plan= plan
-    self.todo = plan if self.typee == 1
-  end
-
-  def plan_done= plan_done
-     self.do = plan_done if self.typee == 1
-  end
-  
-  def week_feel= week_feel
-    self.feel = week_feel if self.typee == 1
-  end
-
-  
-  def plan_done 
-     self.do
+  return @plan
   end
 
   

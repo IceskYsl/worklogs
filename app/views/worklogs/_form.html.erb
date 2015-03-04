@@ -9,7 +9,7 @@
 
 <div class="worklog_todo"> 
 <fieldset>
-<legend>Todo</legend>
+<legend>Plan Todo</legend>
 <div class="worklog_item" id="todo_day" style="display:<%=(@worklog && @worklog.typee == 0) ? 'block' : 'none'%>;padding-left:180px;">
 	<h4><%=l(:index_item_next_day_plan_todo)%></h4>
 	<%if @day_todo && !@day_todo.todo.blank?%>
@@ -28,39 +28,50 @@
 	<%end%>
 </div>
 
+<div class="worklog_item" id="todo_month" style="display:<%=(@worklog && @worklog.typee == 2) ? 'block' : 'none'%>;padding-left:180px;">
+	<h4><%=l(:index_item_next_month_plan_todo)%></h4>
+	<%if @week_todo && !@week_todo.todo.blank?%>
+		<%= textilizable(@week_todo.todo) %>
+	<%else%>
+		<%=l(:text_no_week_plan)%>
+	<%end%>
+</div>
+
+<div class="worklog_item" id="todo_year" style="display:<%=(@worklog && @worklog.typee == 3) ? 'block' : 'none'%>;padding-left:180px;">
+	<h4><%=l(:index_item_next_year_plan_todo)%></h4>
+	<%if @week_todo && !@week_todo.todo.blank?%>
+		<%= textilizable(@week_todo.todo) %>
+	<%else%>
+		<%=l(:text_no_week_plan)%>
+	<%end%>
+</div>
+
 </fieldset>
 </div>
 <br />
 
 
-
-<div class="box tabular" id="day" style="display:<%=(@worklog && @worklog.typee == 1) ? 'none' : 'block'%>;"> 
-	<fieldset>
-		<legend>日报</legend>
-
-		<p><%= f.text_area :do, :required => true, :cols => 40, :rows => 15, :class => 'wiki-edit' %></p>
-		<p><%= f.text_area :todo, :required => true, :cols => 40, :rows => 10, :class => 'wiki-edit' %></p>
-		<p><%= f.text_area :feel, :required => false, :value => "#{@worklog.feel}",:cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
-	</fieldset>
-</div>
+ 
 
 <div class="box tabular" id="week" style="display:<%=(@worklog && @worklog.typee == 0) ? 'none' : 'block'%>;"> 
 	<fieldset>
-		<legend>周报 (标准：每项工作都必须是最小可交付工作单元)</legend>
+		<legend>工作日志</legend>
 
 		
-		<p><%= f.text_area :plan_done, :required => true, :cols => 40, :value => "#{@worklog.plan_done || l(:text_plan_done)}",:rows => 15, :class => 'wiki-edit' %></p>
-		<p><%= f.text_area :plan, :required => true, :cols => 40, :value => "#{@worklog.plan || l(:text_plan)}",:rows => 10, :class => 'wiki-edit' %></p>
-		<p><%= f.text_area :week_feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :do, :required => true, :cols => 40, :value => "#{@worklog.do || l(:text_plan_done)}",:rows => 15, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :todo, :required => true, :cols => 40, :value => "#{@worklog.todo || l(:text_plan)}",:rows => 10, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :feel, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit' %></p>
 	</fieldset>
 
 	<fieldset>
-		<legend>自我评价(本周)</legend>
+		<legend>自我评价</legend>
 		<p><%= f.select(:score, Worklog.score_collection, {:class=>'wiki-edit',:required => true})%> </p>
 		<p><%= f.text_area :good, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
 		<p><%= f.text_area :nogood, :required => false, :cols => 40, :rows => 5, :class => 'wiki-edit',:required => true %></p>
 	</fieldset>
 </div>
+
+
 
 <%= wikitoolbar_for 'worklog_do' %>
 <%= wikitoolbar_for 'worklog_plan_done' %>
@@ -71,15 +82,30 @@ function hiddenScore(x)
 	// alert(x)
 	var y=document.getElementById("week")
 	if (x == "0"){ //day
-		document.getElementById("day").style.display = 'block';
-		document.getElementById("week").style.display = 'none';
 		document.getElementById("todo_day").style.display = 'block';
 		document.getElementById("todo_week").style.display = 'none';
-	}else{
-		document.getElementById("day").style.display = 'none';
-		document.getElementById("week").style.display = 'block';
+		document.getElementById("todo_month").style.display = 'none';
+		document.getElementById("todo_year").style.display = 'none';
+	}else if(x == "1"){
 		document.getElementById("todo_day").style.display = 'none';
 		document.getElementById("todo_week").style.display = 'block';
+		document.getElementById("todo_month").style.display = 'none';
+		document.getElementById("todo_year").style.display = 'none';
+	}else if(x == "2"){
+		document.getElementById("todo_day").style.display = 'none';
+		document.getElementById("todo_week").style.display = 'none';
+		document.getElementById("todo_month").style.display = 'block';
+		document.getElementById("todo_year").style.display = 'none';
+	}else if(x == "3"){
+		document.getElementById("todo_day").style.display = 'none';
+		document.getElementById("todo_week").style.display = 'none';
+		document.getElementById("todo_month").style.display = 'none';
+		document.getElementById("todo_year").style.display = 'block';
+	}else{
+		document.getElementById("todo_day").style.display = 'block';
+		document.getElementById("todo_week").style.display = 'none';
+		document.getElementById("todo_month").style.display = 'none';
+		document.getElementById("todo_year").style.display = 'none';
 	}
 }
 </script>

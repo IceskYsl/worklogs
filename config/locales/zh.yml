@@ -8,6 +8,8 @@ zh:
   label_worklog_new: "添加工作日志"
   label_worklog_edit: "编辑工作日志"
   label_worklog_day: "日报"
+  label_worklog_month: "月报"
+  label_worklog_year: "年报"
   label_feel: "☺心得体会:"
   label_worklog_week: "周报"
   field_day: "日期"
@@ -38,31 +40,49 @@ zh:
   sidebar_about: "约定和说明"
   worklogs_title_day: "日报日志"
   worklogs_title_week: "周报日志"
+  worklogs_title_month: "月报日志"
+  worklogs_title_year: "年报日志"
   worklogs_title_else: "工作日志"
   index_type_day: "日报"
   index_type_week: "周报"
+  index_type_month: "月报"
+  index_type_year: "年报"
+  index_type_else: "未知报"
   index_item_day_done: "今日Done"
   index_item_week_done: "本周总结"
   index_item_next_day_todo: "明日Todo"
   index_item_next_week_todo: "下周计划"
+  index_item_next_month_todo: "下月计划"
+  index_item_next_year_todo: "下年计划"
   index_item_next_day_plan_todo: "今日计划Todo"
   index_item_next_week_plan_todo: "本周要达到的目标"
+  index_item_next_month_plan_todo: "本月要达到的目标"
+  index_item_next_year_plan_todo: "本年要达到的目标"
   index_item_score: "自评分数"
   index_item_good: "做的好的"
   index_item_nogood: "有待改进"
   howto_do_a_plan: "如何制定一个有效目标"
   text_no_day_plan: "你昨天的日报没有制定今日计划,建议你养成做计划的好习惯."
   text_no_week_plan: "你上周的周报没有制定今日计划,建议你养成做计划的好习惯." 
+  text_no_month_plan: "你上月的月报没有制定本月计划,建议你养成做计划的好习惯.
+  text_no_year_plan: "你上一年的年报没有制定本年计划,建议你养成做计划的好习惯.
   text_plan_done: "你本周计划和交付的最小工作单元：\n1."
   text_plan: "你下周最小可交付工作单元：\n1."
   mail_subject_worklog_review: "%{value}评价了你的工作日志"
   mail_subject_worklog_day: "工作日志:%{value}"
   mail_subject_worklog_week: "工作日志: 第%{value}周"
+  mail_subject_worklog_month: "工作日志: 第%{value}月"
+  mail_subject_worklog_year: "工作日志: 第%{value}年"
   mail_body_worklog_day: '今天日报汇总情况如下：'
   mail_body_worklog_week: '本周周报汇总情况如下：'
+  mail_body_worklog_month: '本月月报汇总情况如下：'
+  mail_body_worklog_year: '本年工作日志汇总情况如下：'
   project_module_worklogs: "工作日志"
   permission_all_worklogs: '全部日志'
   permission_my_worklogs: '我的日志'
   permission_new_worklogs: '添加日志'
   text_worklogs_about: "缘起:\n看到大家每天都通过邮件发送工作日报，查阅的时候也有些麻烦，感觉整个方式不够Geek.\n于是俺就写了这么一个小插件方便大家写工作日志.\n\n约定： \n1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ \n2.只有当天的日志可以重复编辑~\n3.其他诸如自动发邮件和黄牌功能等我有空了写~\n\n约定： \n1.时间不可选，养成按时写的好习惯，过期不侯，也没法补写哟~ \n2.只有当天的日志可以重复编辑~\n3.周1到周5晚10点统一统计和发送日报汇总邮件;\n\nTODO： \n1.兼容周报模式；\n2.限制每天只能提交一次(Bug)"
-  text_worklogs_mail_footer: "友情提醒：\n==========\n1.日报和周报是eoe的基本制度，请每位同学在每天22:00前提交，养成写工作日志的好习惯将受益终身。\n2.日报由worklog@eoe系统每天23:00定时汇总发送，周报由每周日中午12点定时汇总发出。\n3.本邮件由系统自动发出，不要回复本邮件，有问题请联系iceskysl@gmail.com。"
+  text_worklogs_mail_footer: "友情提醒：\n==========\n1.日报和周报是极客学院的基本制度，请每位同学在每天22:00前提交，养成写工作日志的好习惯将受益终身。\n2.日报由worklog@eoe系统每天23:00定时汇总发送，周报由每周日中午12点定时汇总发出。\n3.本邮件由系统自动发出，不要回复本邮件，有问题请联系iceskysl@gmail.com。"
+  index_item_plan: 计划
+  index_item_done: 执行
+  index_item_next_todo: 新的计划

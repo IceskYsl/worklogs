@@ -14,10 +14,30 @@ module WorklogsHelper
       return l(:worklogs_title_day)
     elsif typee == "1"
       return l(:worklogs_title_week)
+    elsif typee == "2"
+      return l(:worklogs_title_month)
+    elsif typee == "3"
+      return l(:worklogs_title_year)
     else
       return l(:worklogs_title_else)
     end
   end
+
+  def worklogs_index_title(typee=nil)
+    #puts "#{typee}----"
+    if typee == 0
+      return l(:index_type_day)
+    elsif typee == 1
+      return l(:index_type_week)
+    elsif typee == 2
+      return l(:index_type_month)
+    elsif typee == 3
+      return l(:index_type_year)
+    else
+      return l(:index_type_else)
+    end
+  end
+
 
   def score_text(score)
     case score
