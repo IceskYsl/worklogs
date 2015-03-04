@@ -18,6 +18,14 @@ namespace :worklogs do
   end
   
   
-  desc 'move to.'
+  desc 'fill month and year.'
+  task :fill_month => :environment  do
+    Worklog.all.each do |w|
+      puts "----#{w.id}----"
+      w.month = w.created_at.strftime("%m").to_i
+      w.year = w.created_at.strftime("%Y").to_i
+      w.save()
+    end
+  end
   
 end
