@@ -33,7 +33,7 @@
 	<%if @month_todo && !@month_todo.todo.blank?%>
 		<%= textilizable(@month_todo.todo) %>
 	<%else%>
-		<%=l(:text_no_week_plan)%>
+		<%=l(:text_no_month_plan)%>
 	<%end%>
 </div>
 
@@ -42,7 +42,7 @@
 	<%if @year_todo && !@year_todo.todo.blank?%>
 		<%= textilizable(@year_todo.todo) %>
 	<%else%>
-		<%=l(:text_no_week_plan)%>
+		<%=l(:text_no_year_plan)%>
 	<%end%>
 </div>
 
